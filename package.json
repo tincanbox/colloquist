@@ -29,6 +29,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node main.js --headless"
   },
+  "private":true,
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com:matooy/colloquist.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC"
