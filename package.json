@@ -1,6 +1,6 @@
 {
-  "name": "scrapbook",
-  "version": "1.0.0",
+  "name": "colloquist",
+  "version": "1.0.1",
   "description": "",
   "engines": {
     "node": ">=10.16.0"
