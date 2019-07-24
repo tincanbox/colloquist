@@ -16,6 +16,7 @@
     },
     "globals": {
       "process": true,
+      "__dirname": true,
       "FM": true,
       "_": true,
       "$P": true,
