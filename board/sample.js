@@ -1,5 +1,4 @@
 const Story = disc("class/Story");
-const fs = require('fs').promises;
 
 module.exports = class extends Story {
 

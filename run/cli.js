@@ -3,15 +3,21 @@
  * puppeteer
  */
 const path = require('path');
-const TITLE = String.raw`
-<yellow> _______  _______  ______    _______  _______ </yellow><cyan> _______  _______  _______  ___   _ </cyan>
-<yellow>|       ||       ||    _ |  |   _   ||       |</yellow><cyan>|  _    ||       ||       ||   | | |</cyan>
-<yellow>|  _____||       ||   | ||  |  |_|  ||    _  |</yellow><cyan>| |_|   ||   _   ||   _   ||   |_| |</cyan>
-<yellow>| |_____ |       ||   |_||_ |       ||   |_| |</yellow><cyan>|       ||  | |  ||  | |  ||      _|</cyan>
-<yellow>|_____  ||     __||    __  ||       ||    ___|</yellow><cyan>|  _   | |  |_|  ||  |_|  ||     |_ </cyan>
-<yellow> _____| ||    |__ |   |  | ||   _   ||   |    </yellow><cyan>| |_|   ||       ||       ||    _  |</cyan>
-<yellow>|_______||_______||___|  |_||__| |__||___|    </yellow><cyan>|_______||_______||_______||___| |_|</cyan>
-`;
+const TITLE = (function title(){
+/*HERE
+   ___          .    .                                  .
+ .'   \   __.   |    |     __.    ___.  ,   . -   ____ _/_
+ |      .'   \  |    |   .'   \ .'   |  |   | |  (      |
+ |      |    |  |    |   |    | |    |  |   | |  `--.   |
+  `.__,  `._.' /\__ /\__  `._.'  `---|. `._/| / \___.'  \__/
+                                     |/
+HERE*/
+  var here = "HERE";
+  var reobj = new RegExp("/\\*"+here+"\\n[\\s\\S]*?\\n"+here+"\\*/", "m");
+  var str = reobj.exec(title).toString();
+  str = str.replace(new RegExp("/\\*"+here+"\\n",'m'),'').toString();
+  return str.replace(new RegExp("\\n"+here+"\\*/",'m'),'').toString();
+})();
 
 (async (root, factory) => {
 
@@ -21,18 +27,20 @@ const TITLE = String.raw`
 
   async function process(){
     try{
-      let basedir = path.resolve(path.dirname(require.main.filename) + "/../") + "/";
-      let core = require(basedir + "/lib/core");
-      let c = new core({
-        config: basedir + 'config/core.js'
+      let curdir = path.dirname(require.main.filename);
+      let basedir = path.resolve(curdir + "/../") + "/";
+      let colloquist = require(basedir + "/lib/colloquist");
+      let c = new colloquist({
+        config: require(basedir + 'config/core.js')
       });
       //@see config/draft/demo.js
-      await c.open({});
+      await c.open();
 
       c.logger.plain({
         level: 'info',
         message: TITLE
       });
+
       c.log("arg: " + FM.ob.stringify(c.arg));
 
       await c.recite(c.arg.draft);
