@@ -1,0 +1,596 @@
+├─ agent-base@4.3.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/TooTallNate/node-agent-base
+│  ├─ publisher: Nathan Rajlich
+│  ├─ email: nathan@tootallnate.net
+│  ├─ url: http://n8.io/
+│  ├─ path: /home/dev/space/jast/node_modules/agent-base
+│  └─ licenseFile: /home/dev/space/jast/node_modules/agent-base/README.md
+├─ array-back@3.1.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/75lb/array-back
+│  ├─ publisher: Lloyd Brookes
+│  ├─ email: 75pound@gmail.com
+│  ├─ path: /home/dev/space/jast/node_modules/array-back
+│  └─ licenseFile: /home/dev/space/jast/node_modules/array-back/LICENSE
+├─ async-limiter@1.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/strml/async-limiter
+│  ├─ publisher: Samuel Reed
+│  ├─ path: /home/dev/space/jast/node_modules/async-limiter
+│  └─ licenseFile: /home/dev/space/jast/node_modules/async-limiter/LICENSE
+├─ async@2.6.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/caolan/async
+│  ├─ publisher: Caolan McMahon
+│  ├─ path: /home/dev/space/jast/node_modules/async
+│  └─ licenseFile: /home/dev/space/jast/node_modules/async/LICENSE
+├─ balanced-match@1.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/juliangruber/balanced-match
+│  ├─ publisher: Julian Gruber
+│  ├─ email: mail@juliangruber.com
+│  ├─ url: http://juliangruber.com
+│  ├─ path: /home/dev/space/jast/node_modules/balanced-match
+│  └─ licenseFile: /home/dev/space/jast/node_modules/balanced-match/LICENSE.md
+├─ brace-expansion@1.1.11
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/juliangruber/brace-expansion
+│  ├─ publisher: Julian Gruber
+│  ├─ email: mail@juliangruber.com
+│  ├─ url: http://juliangruber.com
+│  ├─ path: /home/dev/space/jast/node_modules/brace-expansion
+│  └─ licenseFile: /home/dev/space/jast/node_modules/brace-expansion/LICENSE
+├─ buffer-from@1.1.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/LinusU/buffer-from
+│  ├─ path: /home/dev/space/jast/node_modules/buffer-from
+│  └─ licenseFile: /home/dev/space/jast/node_modules/buffer-from/LICENSE
+├─ chrm-test@1.0.0
+│  ├─ licenses: ISC
+│  ├─ path: /home/dev/space/jast
+│  └─ licenseFile: /home/dev/space/jast/LICENSE
+├─ color-convert@1.9.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/Qix-/color-convert
+│  ├─ publisher: Heather Arthur
+│  ├─ email: fayearthur@gmail.com
+│  ├─ path: /home/dev/space/jast/node_modules/color-convert
+│  └─ licenseFile: /home/dev/space/jast/node_modules/color-convert/LICENSE
+├─ color-name@1.1.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/dfcreative/color-name
+│  ├─ publisher: DY
+│  ├─ email: dfcreative@gmail.com
+│  ├─ path: /home/dev/space/jast/node_modules/color-name
+│  └─ licenseFile: /home/dev/space/jast/node_modules/color-name/LICENSE
+├─ color-string@1.5.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/Qix-/color-string
+│  ├─ publisher: Heather Arthur
+│  ├─ email: fayearthur@gmail.com
+│  ├─ path: /home/dev/space/jast/node_modules/color-string
+│  └─ licenseFile: /home/dev/space/jast/node_modules/color-string/LICENSE
+├─ color@3.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/Qix-/color
+│  ├─ path: /home/dev/space/jast/node_modules/color
+│  └─ licenseFile: /home/dev/space/jast/node_modules/color/LICENSE
+├─ colornames@1.1.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/timoxley/colornames
+│  ├─ publisher: Tim Oxley
+│  ├─ path: /home/dev/space/jast/node_modules/colornames
+│  └─ licenseFile: /home/dev/space/jast/node_modules/colornames/LICENSE
+├─ colors@1.3.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/Marak/colors.js
+│  ├─ publisher: Marak Squires
+│  ├─ path: /home/dev/space/jast/node_modules/colors
+│  └─ licenseFile: /home/dev/space/jast/node_modules/colors/LICENSE
+├─ colorspace@1.1.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/3rd-Eden/colorspace
+│  ├─ publisher: Arnout Kazemier
+│  ├─ path: /home/dev/space/jast/node_modules/colorspace
+│  └─ licenseFile: /home/dev/space/jast/node_modules/colorspace/LICENSE.md
+├─ command-line-args@5.1.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/75lb/command-line-args
+│  ├─ publisher: Lloyd Brookes
+│  ├─ email: 75pound@gmail.com
+│  ├─ path: /home/dev/space/jast/node_modules/command-line-args
+│  └─ licenseFile: /home/dev/space/jast/node_modules/command-line-args/LICENSE
+├─ concat-map@0.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/substack/node-concat-map
+│  ├─ publisher: James Halliday
+│  ├─ email: mail@substack.net
+│  ├─ url: http://substack.net
+│  ├─ path: /home/dev/space/jast/node_modules/concat-map
+│  └─ licenseFile: /home/dev/space/jast/node_modules/concat-map/LICENSE
+├─ concat-stream@1.6.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/maxogden/concat-stream
+│  ├─ publisher: Max Ogden
+│  ├─ email: max@maxogden.com
+│  ├─ path: /home/dev/space/jast/node_modules/concat-stream
+│  └─ licenseFile: /home/dev/space/jast/node_modules/concat-stream/LICENSE
+├─ core-util-is@1.0.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/isaacs/core-util-is
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ url: http://blog.izs.me/
+│  ├─ path: /home/dev/space/jast/node_modules/core-util-is
+│  └─ licenseFile: /home/dev/space/jast/node_modules/core-util-is/LICENSE
+├─ cycle@1.0.3
+│  ├─ licenses: Custom: https://github.com/douglascrockford/JSON-js
+│  ├─ repository: https://github.com/dscape/cycle
+│  ├─ path: /home/dev/space/jast/node_modules/cycle
+│  └─ licenseFile: /home/dev/space/jast/node_modules/cycle/README.md
+├─ debug@2.6.9
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/visionmedia/debug
+│  ├─ publisher: TJ Holowaychuk
+│  ├─ email: tj@vision-media.ca
+│  ├─ path: /home/dev/space/jast/node_modules/debug
+│  └─ licenseFile: /home/dev/space/jast/node_modules/debug/LICENSE
+├─ debug@3.2.6
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/visionmedia/debug
+│  ├─ publisher: TJ Holowaychuk
+│  ├─ email: tj@vision-media.ca
+│  ├─ path: /home/dev/space/jast/node_modules/https-proxy-agent/node_modules/debug
+│  └─ licenseFile: /home/dev/space/jast/node_modules/https-proxy-agent/node_modules/debug/LICENSE
+├─ debug@4.1.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/visionmedia/debug
+│  ├─ publisher: TJ Holowaychuk
+│  ├─ email: tj@vision-media.ca
+│  ├─ path: /home/dev/space/jast/node_modules/puppeteer/node_modules/debug
+│  └─ licenseFile: /home/dev/space/jast/node_modules/puppeteer/node_modules/debug/LICENSE
+├─ diagnostics@1.1.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/bigpipe/diagnostics
+│  ├─ publisher: Arnout Kazemier
+│  ├─ path: /home/dev/space/jast/node_modules/diagnostics
+│  └─ licenseFile: /home/dev/space/jast/node_modules/diagnostics/LICENSE.md
+├─ enabled@1.0.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/bigpipe/enabled
+│  ├─ publisher: Arnout Kazemier
+│  ├─ path: /home/dev/space/jast/node_modules/enabled
+│  └─ licenseFile: /home/dev/space/jast/node_modules/enabled/LICENSE.md
+├─ encoding-japanese@1.0.29
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/polygonplanet/encoding.js
+│  ├─ publisher: polygon planet
+│  ├─ email: polygon.planet.aqua@gmail.com
+│  ├─ path: /home/dev/space/jast/node_modules/encoding-japanese
+│  └─ licenseFile: /home/dev/space/jast/node_modules/encoding-japanese/README.md
+├─ env-variable@0.0.5
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/3rd-Eden/env-variable
+│  ├─ publisher: Arnout Kazemier
+│  ├─ path: /home/dev/space/jast/node_modules/env-variable
+│  └─ licenseFile: /home/dev/space/jast/node_modules/env-variable/LICENSE
+├─ es6-promise@4.2.8
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/stefanpenner/es6-promise
+│  ├─ publisher: Yehuda Katz, Tom Dale, Stefan Penner and contributors
+│  ├─ url: Conversion to ES6 API by Jake Archibald
+│  ├─ path: /home/dev/space/jast/node_modules/es6-promise
+│  └─ licenseFile: /home/dev/space/jast/node_modules/es6-promise/LICENSE
+├─ es6-promisify@5.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/digitaldesignlabs/es6-promisify
+│  ├─ publisher: Mike Hall
+│  ├─ email: mikehall314@gmail.com
+│  ├─ path: /home/dev/space/jast/node_modules/es6-promisify
+│  └─ licenseFile: /home/dev/space/jast/node_modules/es6-promisify/README.md
+├─ extract-zip@1.6.7
+│  ├─ licenses: BSD-2-Clause
+│  ├─ repository: https://github.com/maxogden/extract-zip
+│  ├─ publisher: max ogden
+│  ├─ path: /home/dev/space/jast/node_modules/extract-zip
+│  └─ licenseFile: /home/dev/space/jast/node_modules/extract-zip/LICENSE
+├─ fast-safe-stringify@2.0.6
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/davidmarkclements/fast-safe-stringify
+│  ├─ publisher: David Mark Clements
+│  ├─ path: /home/dev/space/jast/node_modules/fast-safe-stringify
+│  └─ licenseFile: /home/dev/space/jast/node_modules/fast-safe-stringify/LICENSE
+├─ fd-slicer@1.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/andrewrk/node-fd-slicer
+│  ├─ publisher: Andrew Kelley
+│  ├─ email: superjoe30@gmail.com
+│  ├─ path: /home/dev/space/jast/node_modules/fd-slicer
+│  └─ licenseFile: /home/dev/space/jast/node_modules/fd-slicer/LICENSE
+├─ fecha@2.3.3
+│  ├─ licenses: MIT
+│  ├─ repository: git+https://taylorhakes@github.com/taylorhakes/fecha
+│  ├─ publisher: Taylor Hakes
+│  ├─ path: /home/dev/space/jast/node_modules/fecha
+│  └─ licenseFile: /home/dev/space/jast/node_modules/fecha/LICENSE
+├─ file-stream-rotator@0.4.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/rogerc/file-stream-rotator
+│  ├─ publisher: Roger Castells
+│  ├─ path: /home/dev/space/jast/node_modules/file-stream-rotator
+│  └─ licenseFile: /home/dev/space/jast/node_modules/file-stream-rotator/README.md
+├─ find-replace@3.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/75lb/find-replace
+│  ├─ publisher: Lloyd Brookes
+│  ├─ email: 75pound@gmail.com
+│  ├─ path: /home/dev/space/jast/node_modules/find-replace
+│  └─ licenseFile: /home/dev/space/jast/node_modules/find-replace/LICENSE
+├─ fs.realpath@1.0.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/fs.realpath
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ url: http://blog.izs.me/
+│  ├─ path: /home/dev/space/jast/node_modules/fs.realpath
+│  └─ licenseFile: /home/dev/space/jast/node_modules/fs.realpath/LICENSE
+├─ glob@7.1.4
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/node-glob
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ url: http://blog.izs.me/
+│  ├─ path: /home/dev/space/jast/node_modules/glob
+│  └─ licenseFile: /home/dev/space/jast/node_modules/glob/LICENSE
+├─ https-proxy-agent@2.2.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/TooTallNate/node-https-proxy-agent
+│  ├─ publisher: Nathan Rajlich
+│  ├─ email: nathan@tootallnate.net
+│  ├─ url: http://n8.io/
+│  ├─ path: /home/dev/space/jast/node_modules/https-proxy-agent
+│  └─ licenseFile: /home/dev/space/jast/node_modules/https-proxy-agent/README.md
+├─ inflight@1.0.6
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/inflight
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ url: http://blog.izs.me/
+│  ├─ path: /home/dev/space/jast/node_modules/inflight
+│  └─ licenseFile: /home/dev/space/jast/node_modules/inflight/LICENSE
+├─ inherits@2.0.3
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/inherits
+│  ├─ path: /home/dev/space/jast/node_modules/inherits
+│  └─ licenseFile: /home/dev/space/jast/node_modules/inherits/LICENSE
+├─ is-arrayish@0.3.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/qix-/node-is-arrayish
+│  ├─ publisher: Qix
+│  ├─ url: http://github.com/qix-
+│  ├─ path: /home/dev/space/jast/node_modules/is-arrayish
+│  └─ licenseFile: /home/dev/space/jast/node_modules/is-arrayish/LICENSE
+├─ is-stream@1.1.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/is-stream
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: sindresorhus.com
+│  ├─ path: /home/dev/space/jast/node_modules/is-stream
+│  └─ licenseFile: /home/dev/space/jast/node_modules/is-stream/license
+├─ isarray@1.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/juliangruber/isarray
+│  ├─ publisher: Julian Gruber
+│  ├─ email: mail@juliangruber.com
+│  ├─ url: http://juliangruber.com
+│  ├─ path: /home/dev/space/jast/node_modules/isarray
+│  └─ licenseFile: /home/dev/space/jast/node_modules/isarray/README.md
+├─ kuler@1.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/3rd-Eden/kuler
+│  ├─ publisher: Arnout Kazemier
+│  ├─ path: /home/dev/space/jast/node_modules/kuler
+│  └─ licenseFile: /home/dev/space/jast/node_modules/kuler/LICENSE
+├─ lodash.camelcase@4.3.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/lodash/lodash
+│  ├─ publisher: John-David Dalton
+│  ├─ email: john.david.dalton@gmail.com
+│  ├─ url: http://allyoucanleet.com/
+│  ├─ path: /home/dev/space/jast/node_modules/lodash.camelcase
+│  └─ licenseFile: /home/dev/space/jast/node_modules/lodash.camelcase/LICENSE
+├─ lodash@4.17.11
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/lodash/lodash
+│  ├─ publisher: John-David Dalton
+│  ├─ email: john.david.dalton@gmail.com
+│  ├─ url: http://allyoucanleet.com/
+│  ├─ path: /home/dev/space/jast/node_modules/lodash
+│  └─ licenseFile: /home/dev/space/jast/node_modules/lodash/LICENSE
+├─ logform@1.10.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/winstonjs/logform
+│  ├─ publisher: Charlie Robbins
+│  ├─ email: charlie.robbins@gmail.com
+│  ├─ path: /home/dev/space/jast/node_modules/winston-compat/node_modules/logform
+│  └─ licenseFile: /home/dev/space/jast/node_modules/winston-compat/node_modules/logform/LICENSE
+├─ logform@2.1.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/winstonjs/logform
+│  ├─ publisher: Charlie Robbins
+│  ├─ email: charlie.robbins@gmail.com
+│  ├─ path: /home/dev/space/jast/node_modules/logform
+│  └─ licenseFile: /home/dev/space/jast/node_modules/logform/LICENSE
+├─ mime@2.4.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/broofa/node-mime
+│  ├─ publisher: Robert Kieffer
+│  ├─ email: robert@broofa.com
+│  ├─ url: http://github.com/broofa
+│  ├─ path: /home/dev/space/jast/node_modules/mime
+│  └─ licenseFile: /home/dev/space/jast/node_modules/mime/LICENSE
+├─ minimatch@3.0.4
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/minimatch
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ url: http://blog.izs.me
+│  ├─ path: /home/dev/space/jast/node_modules/minimatch
+│  └─ licenseFile: /home/dev/space/jast/node_modules/minimatch/LICENSE
+├─ minimist@0.0.8
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/substack/minimist
+│  ├─ publisher: James Halliday
+│  ├─ email: mail@substack.net
+│  ├─ url: http://substack.net
+│  ├─ path: /home/dev/space/jast/node_modules/minimist
+│  └─ licenseFile: /home/dev/space/jast/node_modules/minimist/LICENSE
+├─ mkdirp@0.5.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/substack/node-mkdirp
+│  ├─ publisher: James Halliday
+│  ├─ email: mail@substack.net
+│  ├─ url: http://substack.net
+│  ├─ path: /home/dev/space/jast/node_modules/mkdirp
+│  └─ licenseFile: /home/dev/space/jast/node_modules/mkdirp/LICENSE
+├─ moment@2.24.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/moment/moment
+│  ├─ publisher: Iskren Ivov Chernev
+│  ├─ email: iskren.chernev@gmail.com
+│  ├─ url: https://github.com/ichernev
+│  ├─ path: /home/dev/space/jast/node_modules/moment
+│  └─ licenseFile: /home/dev/space/jast/node_modules/moment/LICENSE
+├─ ms@2.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/zeit/ms
+│  ├─ path: /home/dev/space/jast/node_modules/ms
+│  └─ licenseFile: /home/dev/space/jast/node_modules/ms/license.md
+├─ ms@2.1.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/zeit/ms
+│  ├─ path: /home/dev/space/jast/node_modules/puppeteer/node_modules/ms
+│  └─ licenseFile: /home/dev/space/jast/node_modules/puppeteer/node_modules/ms/license.md
+├─ object-hash@1.3.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/puleos/object-hash
+│  ├─ publisher: Scott Puleo
+│  ├─ email: puleos@gmail.com
+│  ├─ path: /home/dev/space/jast/node_modules/object-hash
+│  └─ licenseFile: /home/dev/space/jast/node_modules/object-hash/LICENSE
+├─ once@1.4.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/once
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ url: http://blog.izs.me/
+│  ├─ path: /home/dev/space/jast/node_modules/once
+│  └─ licenseFile: /home/dev/space/jast/node_modules/once/LICENSE
+├─ one-time@0.0.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/unshiftio/one-time
+│  ├─ publisher: Arnout Kazemier
+│  ├─ path: /home/dev/space/jast/node_modules/one-time
+│  └─ licenseFile: /home/dev/space/jast/node_modules/one-time/LICENSE
+├─ papaparse@5.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/mholt/PapaParse
+│  ├─ publisher: Matthew Holt
+│  ├─ url: https://twitter.com/mholt6
+│  ├─ path: /home/dev/space/jast/node_modules/papaparse
+│  └─ licenseFile: /home/dev/space/jast/node_modules/papaparse/LICENSE
+├─ path-is-absolute@1.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/path-is-absolute
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: sindresorhus.com
+│  ├─ path: /home/dev/space/jast/node_modules/path-is-absolute
+│  └─ licenseFile: /home/dev/space/jast/node_modules/path-is-absolute/license
+├─ pend@1.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/andrewrk/node-pend
+│  ├─ publisher: Andrew Kelley
+│  ├─ email: superjoe30@gmail.com
+│  ├─ path: /home/dev/space/jast/node_modules/pend
+│  └─ licenseFile: /home/dev/space/jast/node_modules/pend/LICENSE
+├─ process-nextick-args@2.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/calvinmetcalf/process-nextick-args
+│  ├─ path: /home/dev/space/jast/node_modules/process-nextick-args
+│  └─ licenseFile: /home/dev/space/jast/node_modules/process-nextick-args/license.md
+├─ progress@2.0.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/visionmedia/node-progress
+│  ├─ publisher: TJ Holowaychuk
+│  ├─ email: tj@vision-media.ca
+│  ├─ path: /home/dev/space/jast/node_modules/progress
+│  └─ licenseFile: /home/dev/space/jast/node_modules/progress/LICENSE
+├─ promise-queue@2.2.5
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/azproduction/promise-queue
+│  ├─ publisher: Mikhail Davydov
+│  ├─ email: i@azproduction.ru
+│  ├─ path: /home/dev/space/jast/node_modules/promise-queue
+│  └─ licenseFile: /home/dev/space/jast/node_modules/promise-queue/LICENSE
+├─ proxy-from-env@1.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/Rob--W/proxy-from-env
+│  ├─ publisher: Rob Wu
+│  ├─ email: rob@robwu.nl
+│  ├─ url: https://robwu.nl/
+│  ├─ path: /home/dev/space/jast/node_modules/proxy-from-env
+│  └─ licenseFile: /home/dev/space/jast/node_modules/proxy-from-env/README.md
+├─ puppeteer@1.17.0
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/GoogleChrome/puppeteer
+│  ├─ publisher: The Chromium Authors
+│  ├─ path: /home/dev/space/jast/node_modules/puppeteer
+│  └─ licenseFile: /home/dev/space/jast/node_modules/puppeteer/LICENSE
+├─ readable-stream@2.3.6
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/nodejs/readable-stream
+│  ├─ path: /home/dev/space/jast/node_modules/readable-stream
+│  └─ licenseFile: /home/dev/space/jast/node_modules/readable-stream/LICENSE
+├─ readable-stream@3.4.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/nodejs/readable-stream
+│  ├─ path: /home/dev/space/jast/node_modules/winston/node_modules/readable-stream
+│  └─ licenseFile: /home/dev/space/jast/node_modules/winston/node_modules/readable-stream/LICENSE
+├─ rimraf@2.6.3
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/rimraf
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ url: http://blog.izs.me/
+│  ├─ path: /home/dev/space/jast/node_modules/rimraf
+│  └─ licenseFile: /home/dev/space/jast/node_modules/rimraf/LICENSE
+├─ safe-buffer@5.1.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/feross/safe-buffer
+│  ├─ publisher: Feross Aboukhadijeh
+│  ├─ email: feross@feross.org
+│  ├─ url: http://feross.org
+│  ├─ path: /home/dev/space/jast/node_modules/safe-buffer
+│  └─ licenseFile: /home/dev/space/jast/node_modules/safe-buffer/LICENSE
+├─ semver@5.7.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/node-semver
+│  ├─ path: /home/dev/space/jast/node_modules/semver
+│  └─ licenseFile: /home/dev/space/jast/node_modules/semver/LICENSE
+├─ simple-swizzle@0.2.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/qix-/node-simple-swizzle
+│  ├─ publisher: Qix
+│  ├─ url: http://github.com/qix-
+│  ├─ path: /home/dev/space/jast/node_modules/simple-swizzle
+│  └─ licenseFile: /home/dev/space/jast/node_modules/simple-swizzle/LICENSE
+├─ stack-trace@0.0.10
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/felixge/node-stack-trace
+│  ├─ publisher: Felix Geisendörfer
+│  ├─ email: felix@debuggable.com
+│  ├─ url: http://debuggable.com/
+│  ├─ path: /home/dev/space/jast/node_modules/stack-trace
+│  └─ licenseFile: /home/dev/space/jast/node_modules/stack-trace/License
+├─ string_decoder@1.1.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/nodejs/string_decoder
+│  ├─ path: /home/dev/space/jast/node_modules/string_decoder
+│  └─ licenseFile: /home/dev/space/jast/node_modules/string_decoder/LICENSE
+├─ text-hex@1.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/3rd-Eden/text-hex
+│  ├─ publisher: Arnout Kazemier
+│  ├─ path: /home/dev/space/jast/node_modules/text-hex
+│  └─ licenseFile: /home/dev/space/jast/node_modules/text-hex/LICENSE
+├─ triple-beam@1.3.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/winstonjs/triple-beam
+│  ├─ publisher: Charlie Robbins
+│  ├─ email: charlie.robbins@gmail.com
+│  ├─ path: /home/dev/space/jast/node_modules/triple-beam
+│  └─ licenseFile: /home/dev/space/jast/node_modules/triple-beam/LICENSE
+├─ typedarray@0.0.6
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/substack/typedarray
+│  ├─ publisher: James Halliday
+│  ├─ email: mail@substack.net
+│  ├─ url: http://substack.net
+│  ├─ path: /home/dev/space/jast/node_modules/typedarray
+│  └─ licenseFile: /home/dev/space/jast/node_modules/typedarray/LICENSE
+├─ typical@4.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/75lb/typical
+│  ├─ publisher: Lloyd Brookes
+│  ├─ email: 75pound@gmail.com
+│  ├─ path: /home/dev/space/jast/node_modules/typical
+│  └─ licenseFile: /home/dev/space/jast/node_modules/typical/LICENSE
+├─ underscore@1.9.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jashkenas/underscore
+│  ├─ publisher: Jeremy Ashkenas
+│  ├─ email: jeremy@documentcloud.org
+│  ├─ path: /home/dev/space/jast/node_modules/underscore
+│  └─ licenseFile: /home/dev/space/jast/node_modules/underscore/LICENSE
+├─ util-deprecate@1.0.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/TooTallNate/util-deprecate
+│  ├─ publisher: Nathan Rajlich
+│  ├─ email: nathan@tootallnate.net
+│  ├─ url: http://n8.io/
+│  ├─ path: /home/dev/space/jast/node_modules/util-deprecate
+│  └─ licenseFile: /home/dev/space/jast/node_modules/util-deprecate/LICENSE
+├─ winston-compat@0.1.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/winstonjs/winston-compat
+│  ├─ publisher: Charlie Robbins
+│  ├─ email: charlie.robbins@gmail.com
+│  ├─ path: /home/dev/space/jast/node_modules/winston-compat
+│  └─ licenseFile: /home/dev/space/jast/node_modules/winston-compat/LICENSE
+├─ winston-daily-rotate-file@3.9.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/winstonjs/winston-daily-rotate-file
+│  ├─ publisher: Charlie Robbins
+│  ├─ email: charlie.robbins@gmail.com
+│  ├─ path: /home/dev/space/jast/node_modules/winston-daily-rotate-file
+│  └─ licenseFile: /home/dev/space/jast/node_modules/winston-daily-rotate-file/LICENSE
+├─ winston-transport@4.3.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/winstonjs/winston-transport
+│  ├─ publisher: Charlie Robbins
+│  ├─ email: charlie.robbins@gmail.com
+│  ├─ path: /home/dev/space/jast/node_modules/winston-transport
+│  └─ licenseFile: /home/dev/space/jast/node_modules/winston-transport/LICENSE
+├─ winston@3.2.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/winstonjs/winston
+│  ├─ publisher: Charlie Robbins
+│  ├─ email: charlie.robbins@gmail.com
+│  ├─ path: /home/dev/space/jast/node_modules/winston
+│  └─ licenseFile: /home/dev/space/jast/node_modules/winston/LICENSE
+├─ wrappy@1.0.2
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/wrappy
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ url: http://blog.izs.me/
+│  ├─ path: /home/dev/space/jast/node_modules/wrappy
+│  └─ licenseFile: /home/dev/space/jast/node_modules/wrappy/LICENSE
+├─ ws@6.2.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/websockets/ws
+│  ├─ publisher: Einar Otto Stangvik
+│  ├─ email: einaros@gmail.com
+│  ├─ url: http://2x.io
+│  ├─ path: /home/dev/space/jast/node_modules/ws
+│  └─ licenseFile: /home/dev/space/jast/node_modules/ws/LICENSE
+└─ yauzl@2.4.1
+   ├─ licenses: MIT
+   ├─ repository: https://github.com/thejoshwolfe/yauzl
+   ├─ publisher: Josh Wolfe
+   ├─ email: thejoshwolfe@gmail.com
+   ├─ path: /home/dev/space/jast/node_modules/yauzl
+   └─ licenseFile: /home/dev/space/jast/node_modules/yauzl/LICENSE

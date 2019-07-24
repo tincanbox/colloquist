@@ -1,0 +1,35 @@
+{
+  "name": "scrapbook",
+  "version": "1.0.0",
+  "description": "",
+  "engines": {
+    "node": ">=10.16.0"
+  },
+  "main": "main.js",
+  "dependencies": {
+    "command-line-args": "^5.1.1",
+    "dotenv": "^8.0.0",
+    "encoding-japanese": "^1.0.29",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "glob": "^7.1.4",
+    "nodemailer": "^6.3.0",
+    "papaparse": "^5.0.0",
+    "promise-queue": "^2.2.5",
+    "puppeteer": "^1.17.0",
+    "sendmail": "^1.6.1",
+    "underscore": "^1.9.1",
+    "winston": "^3.2.1",
+    "winston-daily-rotate-file": "^3.9.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node main.js --headless"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
