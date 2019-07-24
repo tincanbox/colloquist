@@ -1,0 +1,3 @@
+"Draft name should be supplied."
+ENOENT: no such file or directory, open '/home/dev/space/colloquist/run//board/template/mail/default/core_recite_exception.ejs'
+ENOENT: no such file or directory, open '/home/dev/space/colloquist/run//board/template/mail/default/report.result.ejs'

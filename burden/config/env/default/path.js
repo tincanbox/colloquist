@@ -1,5 +1,5 @@
 const path = require('path');
-const basedir = path.resolve(path.dirname(require.main.filename) + "/../../") + "/";
+const basedir = path.resolve(path.dirname(require.main.filename)) + path.sep;
 
 module.exports = () => {
   return {

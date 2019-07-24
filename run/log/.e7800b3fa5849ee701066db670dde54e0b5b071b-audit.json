@@ -1,0 +1,14 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/home/dev/space/colloquist/run/log/.e7800b3fa5849ee701066db670dde54e0b5b071b-audit.json",
+    "files": [
+        {
+            "date": 1563967626187,
+            "name": "/home/dev/space/colloquist/run/log/app.log.2019-07-24",
+            "hash": "4803c3177fc98c04a06dd645fb8aeb61"
+        }
+    ]
+}

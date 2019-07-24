@@ -1,0 +1,13 @@
+
+   ___          .    .                                  .    
+ .'   \   __.   |    |     __.    ___.  ,   . -   ____ _/_   
+ |      .'   \  |    |   .'   \ .'   |  |   | |  (      |    
+ |      |    |  |    |   |    | |    |  |   | |  `--.   |    
+  `.__,  `._.' /\__ /\__  `._.'  `---|. `._/| / \___.'  \__/ 
+                                     |/                      
+
+2019-07-24 20:27:06 | Object.process (/home/dev/space/colloquist/run/cli.js:43:9) | arg: {}
+"Draft name should be supplied."
+ENOENT: no such file or directory, open '/home/dev/space/colloquist/run//board/template/mail/default/core_recite_exception.ejs'
+2019-07-24 20:27:06 | colloquist.exit (/home/dev/space/colloquist/lib/colloquist.js:342:10) | fin.
+ENOENT: no such file or directory, open '/home/dev/space/colloquist/run//board/template/mail/default/report.result.ejs'
