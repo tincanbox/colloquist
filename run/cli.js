@@ -24,25 +24,30 @@ DOC*/
 
 (async (root, factory) => {
 
-  await (factory().process());
+  await (factory().proc());
 
 })(global, function(){
 
-  async function process(){
+  async function proc(){
     try{
       let colloquist = require("../lib/colloquist");
-      let c = new colloquist();
-      //@see config/draft/demo.js
-      await c.open();
-
-      c.logger.plain({
-        level: 'info',
-        message: TITLE
+      var cwd = __dirname.split("/node_modules/");
+      var app = "";
+      console.log(process.cwd());
+      if(cwd.length >= 2){
+        app = cwd[0];
+        console.log("as_module");
+      }else{
+        throw "colloquist should not be used directly or as symlinked.";
+      }
+      let c = new colloquist({
+        path: {
+          app: app,
+          config: [app, 'burden', 'config'].join(path.sep),
+          shelf: [app, 'burden', 'shelf'].join(path.sep),
+        }
       });
-
-      c.log("arg: " + FM.ob.stringify(c.arg));
-
-      await c.recite(c.arg.draft);
+      await c.execute();
       return c;
     }catch(e){
       console.log("Uncaught Error:");
@@ -51,7 +56,7 @@ DOC*/
   }
 
   return {
-    process: process
+    proc: proc
   }
 
 });

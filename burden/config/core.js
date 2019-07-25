@@ -1,10 +1,15 @@
 /* Core configurations.
  */
 
-//const path = require('path');
-//const basedir = path.resolve(path.dirname(require.main.filename) + "/../") + "/";
+const path = require('path');
+let app = path.resolve([__dirname, '..', '..'].join(path.sep));
 
 module.exports = {
-  app: 'YourAppName',
-  env: 'devel'
+  app: process.env.APPNAME || "YOURAPPNAME",
+  env: process.env.ENVIRONMENT || "devel",
+  path: {
+    app: app,
+    log: [app, 'log'].join(path.sep),
+    shelf: [app, 'shelf'].join(path.sep)
+  }
 }
