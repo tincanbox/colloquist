@@ -19,6 +19,7 @@ module.exports = class extends Story {
   async chapter_sample(){
 
     await this.page.goto('https://www.google.com');
+    await this.prepare();
 
     /* $P is injected (for all page) jQuery instance.
      */
@@ -34,7 +35,7 @@ module.exports = class extends Story {
       $P('input[name="q"]').val("kyoani");
     });
 
-    await this.core.sleep(100);
+    await FM.async.sleep(100);
     await this.page.evaluate(() => {
       $P('input[name="btnK"]').click();
     });

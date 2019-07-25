@@ -1,7 +1,7 @@
 /* Configurations for Puppeteer
  */
 module.exports = {
-  "headless": false,
+  "headless": true,
   "viewport": null,
   "display": {
     "width": false,

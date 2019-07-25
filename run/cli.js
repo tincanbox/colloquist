@@ -33,22 +33,17 @@ DOC*/
       let colloquist = require("../lib/colloquist");
       var cwd = __dirname.split("/node_modules/");
       var app = "";
-      console.log(process.cwd());
       if(cwd.length >= 2){
         app = cwd[0];
-        console.log("as_module");
       }else{
         throw "colloquist should not be used directly or as symlinked.";
       }
-      let c = new colloquist({
-        path: {
-          app: app,
-          config: [app, 'burden', 'config'].join(path.sep),
-          shelf: [app, 'burden', 'shelf'].join(path.sep),
-        }
-      });
+
+      let c = new colloquist(require([app, 'burden', 'config', 'core.js'].join(path.sep)));
+      await c.open();
       await c.execute();
       return c;
+
     }catch(e){
       console.log("Uncaught Error:");
       console.error(e);
