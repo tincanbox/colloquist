@@ -31,19 +31,28 @@ DOC*/
   async function proc(){
     try{
       let colloquist = require("../lib/colloquist");
-      var cwd = __dirname.split("/node_modules/");
-      var app = "";
-      if(cwd.length >= 2){
-        app = cwd[0];
+      let hp = __dirname.split(path.sep + "node_modules" + path.sep);
+      let app = "";
+      if(hp.length >= 2){
+        app = hp[hp.length - 2];
       }else{
         app = path.resolve(__dirname + path.sep + '..');
         //throw "colloquist should not be used directly or as symlinked.";
       }
 
       let c = new colloquist({
+        project: path.dirname(app),
         launch: 'cli'
       });
-      await c.open(require([app, 'burden', 'config', 'local.js'].join(path.sep)));
+
+      let conf = {};
+      try{
+        conf = require([app, 'burden', 'config', 'local.js'].join(path.sep));
+      }catch(e){
+        //
+      }
+
+      await c.open(conf);
       await c.execute();
       return c;
 
