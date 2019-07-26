@@ -41,13 +41,13 @@ DOC*/
       }
 
       let c = new colloquist({
-        project: path.dirname(app),
+        project: path.basename(app + path.sep),
         launch: 'cli'
       });
 
       let conf = {};
       try{
-        conf = require([app, 'burden', 'config', 'local.js'].join(path.sep));
+        conf = require([app, 'burden', 'config', 'local'].join(path.sep));
       }catch(e){
         //
       }
