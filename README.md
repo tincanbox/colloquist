@@ -16,7 +16,7 @@ In your `package.json`, add below configuration.
     {
       "dependencies": {
         "colloquist":
-          "git+https://npm.private.repo:F-ryyxfqu6vdjz3wkjWr@gitlab.com/limbs/colloquist.git"
+          "git+https://@gitlab.com/limbs/colloquist.git#HEAD"
       }
     }
 
@@ -30,6 +30,8 @@ Generate colloquist workspace. Mandatory directory will be made within your cwd.
 
     npx colloquist create
 
+
+Or if you have yourown burden directory, put it up.
 
 You will see burden directory like below. `burden` is portable colloquist environment.
 
