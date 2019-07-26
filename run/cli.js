@@ -32,6 +32,7 @@ DOC*/
     try{
       let colloquist = require("../lib/colloquist");
       let hp = __dirname.split(path.sep + "node_modules" + path.sep);
+
       let app = "";
       if(hp.length >= 2){
         app = hp[hp.length - 2];
@@ -40,11 +41,6 @@ DOC*/
         //throw "colloquist should not be used directly or as symlinked.";
       }
 
-      let c = new colloquist({
-        project: path.basename(app + path.sep),
-        launch: 'cli'
-      });
-
       let conf = {};
       try{
         conf = require([app, 'burden', 'config', 'local'].join(path.sep));
@@ -52,7 +48,9 @@ DOC*/
         //
       }
 
-      await c.open(conf);
+      let c = new colloquist(conf);
+
+      await c.open();
       await c.execute();
       return c;
 
