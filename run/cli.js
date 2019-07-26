@@ -43,7 +43,7 @@ DOC*/
       let c = new colloquist({
         launch: 'cli'
       });
-      await c.open(require([app, 'burden', 'config', 'core.js'].join(path.sep)));
+      await c.open(require([app, 'burden', 'config', 'local.js'].join(path.sep)));
       await c.execute();
       return c;
 
