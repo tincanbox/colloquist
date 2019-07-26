@@ -17,12 +17,12 @@ Errors
 <% row.error.map((e) => {
 %><%= e %>
 <% }) %>
-<% } %>
 
 Log
 <% for(var k in row.memory){ %>
   <%= k %> =
   <%= JSON.stringify(row.memory[k]) %>
+<% } %>
 <% } %>
 =========== EOF ============
 </pre>

@@ -27,6 +27,7 @@ module.exports = class extends Story {
       var l = await this.page.evaluate(() => {
         return $P('c-wiz').length > 0;
       });
+      console.log(l);
       if(l) rs(true);
     })
 
@@ -34,13 +35,13 @@ module.exports = class extends Story {
       var titles = [];
       $P('c-wiz > div > div[jscontroller]').each((el) => {
         var wrap = $P(el);
-        titles.push(wrap.find('article > h3').text());
+        titles.push(wrap.find('article h3').text());
       });
       return titles;
     });
     console.log(headlines);
 
-    await FM.async.sleep(100);
+    await FM.async.sleep(10000);
     await this.page.evaluate(() => {
       $P('input[name="btnK"]').click();
     });

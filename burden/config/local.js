@@ -1,4 +1,4 @@
-/* Core configurations.
+/* Local configurations.
  */
 
 const path = require('path');

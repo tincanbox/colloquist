@@ -10,6 +10,7 @@ Init your npm project directory.
 
     npm init
 
+
 In your `package.json`, add below configuration.
 
     {
@@ -27,10 +28,10 @@ Then let's install all deps. (This will take a bit...)
 
 Generate colloquist workspace. Mandatory directory will be made within your cwd.
 
-    npx colloquist init
+    npx colloquist create
 
 
-You will see burden directory like below.
+You will see burden directory like below. `burden` is portable colloquist environment.
 
     ▾ burden/
       ▾ config/
