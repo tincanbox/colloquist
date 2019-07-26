@@ -36,11 +36,14 @@ DOC*/
       if(cwd.length >= 2){
         app = cwd[0];
       }else{
-        throw "colloquist should not be used directly or as symlinked.";
+        app = path.resolve(__dirname + path.sep + '..');
+        //throw "colloquist should not be used directly or as symlinked.";
       }
 
-      let c = new colloquist(require([app, 'burden', 'config', 'core.js'].join(path.sep)));
-      await c.open();
+      let c = new colloquist({
+        launch: 'cli'
+      });
+      await c.open(require([app, 'burden', 'config', 'core.js'].join(path.sep)));
       await c.execute();
       return c;
 

@@ -25,6 +25,26 @@ Then let's install all deps. (This will take a bit...)
     npm install
 
 
-If you want to use `colloquist` as CLI tool, you need to run below command.
+Generate colloquist workspace. Mandatory directory will be made within your cwd.
 
     npx colloquist init
+
+
+You will see burden directory like below.
+
+    ▾ burden/
+      ▾ config/
+        ▸ env/
+          core.js
+          spice.js
+      ▾ shelf/
+        ▸ draft/
+        ▸ template/mail/
+          sample.js
+
+
+Now let's run demo Story.
+
+    npx colloquist run sample
+
+
