@@ -33,7 +33,7 @@ DOC*/
       let colloquist = require("../lib/colloquist");
 
       let c = new colloquist({
-        burden: process.cwd()
+        burden: process.cwd() + path.sep + 'burden'
       });
 
       await c.open();
