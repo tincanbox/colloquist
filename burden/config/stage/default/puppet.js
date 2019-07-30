@@ -2,6 +2,7 @@
  */
 module.exports = {
   "headless": true,
+  "gui": false,
   "viewport": null,
   "display": {
     "width": false,
