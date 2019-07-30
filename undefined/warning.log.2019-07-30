@@ -1,0 +1,2 @@
+{"message":"ENOENT: no such file or directory, stat '/draft/sample.js'","stack":["Error: ENOENT: no such file or directory, stat '/draft/sample.js'"]}
+{"message":"ENOENT: no such file or directory, open '/template/mail/default/core.recite_exception.ejs'","stack":["Error: ENOENT: no such file or directory, open '/template/mail/default/core.recite_exception.ejs'"]}
