@@ -1,0 +1,27 @@
+{"message":"ENOENT: no such file or directory, stat '/draft/sample.js'","stack":["Error: ENOENT: no such file or directory, stat '/draft/sample.js'"]}
+{"message":"ENOENT: no such file or directory, open '/template/mail/default/core.recite_exception.ejs'","stack":["Error: ENOENT: no such file or directory, open '/template/mail/default/core.recite_exception.ejs'"]}
+2019-07-31 14:45:24 | colloquist.exit (/home/dev/space/colloquist/lib/colloquist.js:507:10) | fin.
+{"message":"ENOENT: no such file or directory, stat '/draft/sample.js'","stack":["Error: ENOENT: no such file or directory, stat '/draft/sample.js'"]}
+{"message":"ENOENT: no such file or directory, open '/template/mail/default/core.recite_exception.ejs'","stack":["Error: ENOENT: no such file or directory, open '/template/mail/default/core.recite_exception.ejs'"]}
+2019-07-31 14:45:40 | colloquist.exit (/home/dev/space/colloquist/lib/colloquist.js:507:10) | fin.
+{"message":"ENOENT: no such file or directory, stat '/draft/sample.js'","stack":["Error: ENOENT: no such file or directory, stat '/draft/sample.js'"]}
+{"message":"ENOENT: no such file or directory, open '/template/mail/default/core.recite_exception.ejs'","stack":["Error: ENOENT: no such file or directory, open '/template/mail/default/core.recite_exception.ejs'"]}
+2019-07-31 14:45:55 | colloquist.exit (/home/dev/space/colloquist/lib/colloquist.js:507:10) | fin.
+{"message":"ENOENT: no such file or directory, stat '/draft/sample.js'","stack":["Error: ENOENT: no such file or directory, stat '/draft/sample.js'"]}
+{"message":"ENOENT: no such file or directory, open '/template/mail/default/core.recite_exception.ejs'","stack":["Error: ENOENT: no such file or directory, open '/template/mail/default/core.recite_exception.ejs'"]}
+2019-07-31 14:49:22 | colloquist.exit (/home/dev/space/colloquist/lib/colloquist.js:501:10) | fin.
+{"message":"ENOENT: no such file or directory, stat '/draft/sample.js'","stack":["Error: ENOENT: no such file or directory, stat '/draft/sample.js'"]}
+{"message":"ENOENT: no such file or directory, open '/template/mail/default/core.recite_exception.ejs'","stack":["Error: ENOENT: no such file or directory, open '/template/mail/default/core.recite_exception.ejs'"]}
+2019-07-31 14:50:07 | colloquist.exit (/home/dev/space/colloquist/lib/colloquist.js:501:10) | fin.
+{"message":"ENOENT: no such file or directory, stat '/draft/sample.js'","stack":["Error: ENOENT: no such file or directory, stat '/draft/sample.js'"]}
+{"message":"ENOENT: no such file or directory, open '/template/mail/default/core.recite_exception.ejs'","stack":["Error: ENOENT: no such file or directory, open '/template/mail/default/core.recite_exception.ejs'"]}
+2019-07-31 14:50:24 | colloquist.exit (/home/dev/space/colloquist/lib/colloquist.js:502:10) | fin.
+{"message":"ENOENT: no such file or directory, stat '/draft/sample.js'","stack":["Error: ENOENT: no such file or directory, stat '/draft/sample.js'"]}
+{"message":"ENOENT: no such file or directory, open '/template/mail/default/core.recite_exception.ejs'","stack":["Error: ENOENT: no such file or directory, open '/template/mail/default/core.recite_exception.ejs'"]}
+2019-07-31 14:51:12 | colloquist.exit (/home/dev/space/colloquist/lib/colloquist.js:502:10) | fin.
+{"message":"ENOENT: no such file or directory, stat '/draft/sample.js'","stack":["Error: ENOENT: no such file or directory, stat '/draft/sample.js'"]}
+{"message":"ENOENT: no such file or directory, open '/template/mail/default/core.recite_exception.ejs'","stack":["Error: ENOENT: no such file or directory, open '/template/mail/default/core.recite_exception.ejs'"]}
+2019-07-31 14:52:24 | colloquist.exit (/home/dev/space/colloquist/lib/colloquist.js:504:10) | fin.
+{"message":"ENOENT: no such file or directory, stat '/draft/sample.js'","stack":["Error: ENOENT: no such file or directory, stat '/draft/sample.js'"]}
+{"message":"ENOENT: no such file or directory, open '/template/mail/default/core.recite_exception.ejs'","stack":["Error: ENOENT: no such file or directory, open '/template/mail/default/core.recite_exception.ejs'"]}
+2019-07-31 14:52:38 | colloquist.exit (/home/dev/space/colloquist/lib/colloquist.js:504:10) | fin.
