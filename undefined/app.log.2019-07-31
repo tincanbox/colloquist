@@ -1,0 +1,18 @@
+{"message":"ENOENT: no such file or directory, stat '/draft/sample.js'","stack":["Error: ENOENT: no such file or directory, stat '/draft/sample.js'"]}
+{"message":"ENOENT: no such file or directory, open '/template/mail/default/core.recite_exception.ejs'","stack":["Error: ENOENT: no such file or directory, open '/template/mail/default/core.recite_exception.ejs'"]}
+2019-07-31 14:11:46 | colloquist.exit (/home/dev/space/colloquist/lib/colloquist.js:502:10) | fin.
+{"message":"ENOENT: no such file or directory, stat '/draft/sample.js'","stack":["Error: ENOENT: no such file or directory, stat '/draft/sample.js'"]}
+{"message":"ENOENT: no such file or directory, open '/template/mail/default/core.recite_exception.ejs'","stack":["Error: ENOENT: no such file or directory, open '/template/mail/default/core.recite_exception.ejs'"]}
+2019-07-31 14:12:17 | colloquist.exit (/home/dev/space/colloquist/lib/colloquist.js:503:10) | fin.
+{"message":"ENOENT: no such file or directory, stat '/draft/sample.js'","stack":["Error: ENOENT: no such file or directory, stat '/draft/sample.js'"]}
+{"message":"ENOENT: no such file or directory, open '/template/mail/default/core.recite_exception.ejs'","stack":["Error: ENOENT: no such file or directory, open '/template/mail/default/core.recite_exception.ejs'"]}
+2019-07-31 14:12:33 | colloquist.exit (/home/dev/space/colloquist/lib/colloquist.js:503:10) | fin.
+{"message":"ENOENT: no such file or directory, stat '/draft/sample.js'","stack":["Error: ENOENT: no such file or directory, stat '/draft/sample.js'"]}
+{"message":"ENOENT: no such file or directory, open '/template/mail/default/core.recite_exception.ejs'","stack":["Error: ENOENT: no such file or directory, open '/template/mail/default/core.recite_exception.ejs'"]}
+2019-07-31 14:12:52 | colloquist.exit (/home/dev/space/colloquist/lib/colloquist.js:504:10) | fin.
+{"message":"ENOENT: no such file or directory, stat '/draft/sample.js'","stack":["Error: ENOENT: no such file or directory, stat '/draft/sample.js'"]}
+{"message":"ENOENT: no such file or directory, open '/template/mail/default/core.recite_exception.ejs'","stack":["Error: ENOENT: no such file or directory, open '/template/mail/default/core.recite_exception.ejs'"]}
+2019-07-31 14:13:20 | colloquist.exit (/home/dev/space/colloquist/lib/colloquist.js:504:10) | fin.
+{"message":"ENOENT: no such file or directory, stat '/draft/sample.js'","stack":["Error: ENOENT: no such file or directory, stat '/draft/sample.js'"]}
+{"message":"ENOENT: no such file or directory, open '/template/mail/default/core.recite_exception.ejs'","stack":["Error: ENOENT: no such file or directory, open '/template/mail/default/core.recite_exception.ejs'"]}
+2019-07-31 14:14:37 | colloquist.exit (/home/dev/space/colloquist/lib/colloquist.js:506:10) | fin.
