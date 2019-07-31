@@ -1,18 +1,12 @@
 package-lock.json
 node_modules/
-*.swp
-*.swo
-
-*.out
-pid.*
-
-# App config
-.env
-log/*
-storage/tmp/*
-storage/csv/*
-config/*.js
-
 !.gitignore
 !.gitkeep
-!.config/default/*
+*.swp
+*.swo
+*.out
+
+.env
+log/*
+burden/config/*.js
+!burden/config/local.js
