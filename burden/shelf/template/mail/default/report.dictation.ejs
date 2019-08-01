@@ -15,13 +15,13 @@ Premise:
 - - - - - - - - - - - - - - -
 Errors
 <% row.error.map((e) => {
-%><%= e %>
+%><%= FM.vr.stringify(e) %>
 <% }) %>
 
 Log
 <% for(var k in row.memory){ %>
   <%= k %> =
-  <%= JSON.stringify(row.memory[k]) %>
+  <%= FM.vr.stringify(row.memory[k]) %>
 <% } %>
 <% } %>
 =========== EOF ============
