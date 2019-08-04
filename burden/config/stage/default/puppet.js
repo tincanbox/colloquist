@@ -2,12 +2,14 @@
  */
 module.exports = {
   "headless": true,
-  "gui": false,
   "viewport": null,
   "display": {
     "width": false,
     "height": false
   },
+  "keep_userdata": true,
+  "arg": [],
+  "useragent": false,
   "max_concurrent_work": 2,
   "block": {
     "type": [
@@ -16,5 +18,6 @@ module.exports = {
     "url": [
       // Regex pattern list
     ]
-  }
+  },
+  "override": {}
 }
