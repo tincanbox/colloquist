@@ -33,6 +33,7 @@ Or if you have yourown burden directory, put it up.
 
 You will see burden directory like below. `burden` is portable colloquist environment.
 
+      app.js
     ▾ burden/
       ▾ config/
         ▸ env/
