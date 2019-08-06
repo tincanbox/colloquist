@@ -13,11 +13,9 @@ Init your npm project directory.
 
 In your `package.json`, add below configuration.
 
-    {
-      "dependencies": {
-        "colloquist":
-          "git+https://@gitlab.com/limbs/colloquist.git#HEAD"
-      }
+    "dependencies": {
+      "colloquist":
+        "git+https://@gitlab.com/nigratruo/colloquist.git#YOUR_DESERVING_COMMINT_HASH_HERE"
     }
 
 
