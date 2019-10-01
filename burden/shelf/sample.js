@@ -17,6 +17,8 @@ module.exports = class extends Story {
   }
 
 
+  /* play your way with sample chapter.
+   */
   async chapter_sample(){
 
     await this.page.goto('https://news.yahoo.com/');

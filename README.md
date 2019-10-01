@@ -15,7 +15,7 @@ In your `package.json`, add below configuration.
 
     "dependencies": {
       "colloquist":
-        "git+https://@gitlab.com/nigratruo/colloquist.git#YOUR_DESERVING_COMMINT_HASH_HERE"
+        "git+https://@gitlab.com/nigratruo/colloquist.git"
     }
 
 
@@ -33,17 +33,23 @@ Or if you have yourown burden directory, put it up.
 
 You will see burden directory like below. `burden` is portable colloquist environment.
 
-      app.js
     ▾ burden/
       ▾ config/
-        ▸ env/
-          core.js
-          spice.js
+        ▾ stage/
+          ▾ default/
+              debug.js
+              mail.js
+              path.js
+              puppet.js
+              spice.js
+          ▾ devel/
+          ▾ prod/
+          local.js
       ▾ shelf/
-        ▸ draft/
+        ▾ draft/
+            sample.js
         ▸ template/mail/
           sample.js
-
 
 Now let's run demo Story.
 
