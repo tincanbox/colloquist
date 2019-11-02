@@ -1,11 +1,22 @@
 /* Configurations for Puppeteer
  */
 module.exports = {
+  /* As ver 1.1.0, colloquist uses puppeteer-core as a handler.
+   * You should install Chromium and specify the executablePath before use.
+   *
+   * takes: string
+   * default: null
+   */
+  "executable": null,
   /* As default, colloquist uses Puppeteer as headless background worker.
    * You can toggle this opetion via cli arg `--gui` or `--headless`
+   *
+   * takes: boolean
+   * default: true
    */
   "headless": true,
-  /* Chromium has default-viewport 800x600 GUI
+  /* Chromium has default-viewport 800x600 GUI.
+   * colloquist disables defaults and maxes out view.
    */
   "viewport": null,
   "display": {
@@ -15,16 +26,25 @@ module.exports = {
   /* This flag activates userDataDir automatically.
    * Default dest path is `/tmp/colloquist_storage.%YOURMACADDRES%/`.
    * You can overrides this config via `override` property.
+   *
+   * takes: boolean
+   * default: true
    */
   "keep_userdata": true,
   /* Puppeteer's launch options
    * See chromium docs.
+   *
+   * takes: [string],
+   * default: []
    */
   "arg": [
     // --no-sandbox
   ],
   /* If you want to override default UA, use this option.
    * Safari, Firefox, IE ?
+   *
+   * takes: string
+   * default: false
    */
   "useragent": false,
   /* Actually this option is used within Scenario.

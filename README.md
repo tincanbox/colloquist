@@ -15,7 +15,7 @@ In your `package.json`, add below configuration.
 
     "dependencies": {
       "colloquist":
-        "git+https://@gitlab.com/nigratruo/colloquist.git"
+        "git+ssh://@github.com:tincanbox/colloquist.git"
     }
 
 

@@ -48,7 +48,7 @@ module.exports = class extends Story {
       return titles;
     });
 
-    this.remember('headlines', headlines);
+    this.monolog('yahoo-news-headlines', headlines);
   }
 
 }
