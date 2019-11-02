@@ -7,7 +7,7 @@ const path = require('path');
 
   /* Loads core class.
    */
-  const colloquist = require([__dirname, '..','lib','colloquist'].join(path.sep));
+  const colloquist = require('colloquist');
 
   /* Instantiates colloquist with burden dir configuration.
    */
@@ -22,8 +22,8 @@ const path = require('path');
     more_arg: 123
   });
 
-  /* Observe command-line arguments.
+  /* Run story manually.
    */
-  await c.execute();
+  await c.recite("sample");
 
 })();
