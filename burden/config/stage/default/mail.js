@@ -1,4 +1,5 @@
 module.exports = {
+  /*
   report: {
     from: 'no-reply@yourdomain.com',
     server: {
@@ -11,4 +12,5 @@ module.exports = {
       type: 'text',
     }
   }
+  */
 }
