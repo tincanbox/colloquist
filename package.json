@@ -21,7 +21,7 @@
     "glob": "^7.1.4",
     "nodemailer": "^6.3.0",
     "papaparse": "^5.0.1",
-    "puppeteer-core": "^2.0.0",
+    "puppeteer": "^2.0.0",
     "underscore": "^1.9.1",
     "winston": "^3.2.1",
     "winston-daily-rotate-file": "^3.10.0"
