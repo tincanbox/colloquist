@@ -35,7 +35,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/limbs/colloquist.git#HEAD"
+    "url": "git+ssh://@github.com:tincanbox/colloquist.git"
   },
   "bin": {
     "colloquist": "./run/cli.js"
