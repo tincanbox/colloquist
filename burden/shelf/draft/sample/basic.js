@@ -7,7 +7,7 @@ module.exports = [
   {
     /* A name of calling Story file.
      */
-    story: 'sample',
+    story: 'sample.basic',
     /* Automatically opens Page OR BrowserContext on Story initialization.
      * Set false if you want to pause.
      * default = true
