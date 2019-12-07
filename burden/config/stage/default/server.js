@@ -5,6 +5,15 @@ module.exports = {
 
       server.router.get('*', async function(ctx){
         console.log("Request URL:", ctx.request.url);
+
+        // Blocks stupid request.
+        var block = [
+          "/favicon.ico"
+        ];
+        if(block.indexOf(ctx.request.url) > -1){
+          return;
+        }
+
         var t = ctx.request.url.replace(/^\//, "");
         var c = await server.core.run(t);
         ctx.body = c.scenario.passed;

@@ -12,21 +12,19 @@ module.exports = class extends Story {
     ]);
 
     this.compose([
-      "sample"
+      "sample",
+      "output"
     ]);
+
   }
 
 
   /* play your way with sample chapter.
    */
-  async chapter_sample(){
+  async chapter_sample(param, prev){
 
-    await this.page.goto('https://news.yahoo.com/');
+    await this.prepare('https://news.yahoo.com/');
 
-    /* Waits $P is injected.
-     * $P is injected (for all page) jQuery instance.
-     */
-    await this.prepare();
 
     /* Waits and finds target elements.
      */
@@ -48,7 +46,14 @@ module.exports = class extends Story {
       return titles;
     });
 
-    this.monolog('yahoo-news-headlines', headlines);
+    return headlines;
+  }
+
+  async chapter_output(param, prev){
+    for(var r of prev){
+      //
+      this.monolog('yahoo-news-headline', r);
+    }
   }
 
 }
