@@ -1,0 +1,16 @@
+<div>Hello world!!</div>
+
+<form method="post">
+
+  <input name="sample" value="<%= ( post.sample ) || "" %>">
+  <input type="submit">
+
+</form>
+
+<div>
+
+<% if(result){ %>
+<% for(var a of result){ %><div><%= JSON.stringify(a) %></div><% } %>
+<% } %>
+
+</div>
