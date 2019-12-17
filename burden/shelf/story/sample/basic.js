@@ -23,7 +23,7 @@ module.exports = class extends Story {
    */
   async chapter_sample(param, prev){
 
-    await this.prepare('https://news.yahoo.com/');
+    await this.pull('https://news.yahoo.com/');
 
 
     /* Waits and finds target elements.
