@@ -37,22 +37,25 @@ You will see burden directory like below. `burden` is portable colloquist enviro
       ▾ config/
         ▾ stage/
           ▾ default/
+              database.js
               debug.js
               mail.js
-              path.js
               puppet.js
+              server.js
               spice.js
-          ▾ devel/
-          ▾ prod/
+          ▸ devel/
+          ▸ prod/
           local.js
       ▾ shelf/
-        ▾ draft/
-            sample.js
-        ▸ template/mail/
-          sample.js
+        ▸ draft/
+        ▸ schema/
+        ▸ story/
+        ▸ template/
+        ini.js
+
 
 Now let's run demo Story.
 
-    npx colloquist run sample
+    npx colloquist run sample/basic
 
 
