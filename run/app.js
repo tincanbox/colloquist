@@ -5,13 +5,9 @@ const path = require('path');
  */
 (async () => {
 
-  /* Loads core class.
-   */
-  const colloquist = require('colloquist');
-
   /* Instantiates colloquist with burden dir configuration.
    */
-  var c = new colloquist({
+  var c = new (require('colloquist'))({
     // Set a path which includes burden dir.
     burden: path.resolve([__dirname, '..', 'burden'].join(path.sep))
   });
@@ -19,11 +15,13 @@ const path = require('path');
   /* Start colloquist basics.
    */
   await c.open({
-    more_arg: 123
+    /* additional configurations like...
+     * path, puppet, database.
+     */
   });
 
   /* Run story manually.
    */
-  await c.recite("sample");
+  await c.execute();
 
 })();
