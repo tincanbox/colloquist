@@ -24,7 +24,7 @@ module.exports = {
    *
    *   # Model collection with indexed by model name.
    *   # Each require()'d file should be forms of (name, engine, connection, config) => Model .
-   *   factory: (DatabaseInstance, config:object)
+   *   factory: (core.database, connection, config:object)
    * }
    */
 
@@ -39,6 +39,7 @@ module.exports = {
     password: "",
     handler: {
       option: {
+        logging: false,
         dialect: "sqlite",
         storage: "/data/sqlite3/sample"
       },
@@ -87,7 +88,7 @@ module.exports = {
 
       },
       /*
-      init: function(){
+      init: function(ins, conn, config){
       }
       */
     }
@@ -119,7 +120,7 @@ module.exports = {
     factory: {
       option: {},
       /* Builds ORM Model objects.
-      init: async function(ins, config){
+      init: async function(ins, conn, config){
         // Do Your Thing.
         return await ins.factory("mongodb", config);
       }

@@ -4,6 +4,8 @@ module.exports = {
    */
   level: 'all',
 
+  output: ['console', 'file', /* 'database:mongodb' */],
+
   /* Rotation configulation.
    */
   rotation: {
@@ -12,6 +14,6 @@ module.exports = {
     count: {
       dictation: 100
     }
-  }
+  },
 
 }

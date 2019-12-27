@@ -1,12 +1,11 @@
-module.exports = function(name, engine, handler, option){
+module.exports = function(name, conn, option){
 
   /* name = Name of this file without ext
-   * engine = Engine which retrieved via require()
    * handler = Instantiated Engine.
    * option = factory.option from config/STAGE/database.js
    */
 
-  return handler.model(name, new engine.Schema(
+  return conn.handler.model(name, new conn.engine.Schema(
     {
       label: String
     },

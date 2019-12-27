@@ -1,9 +1,8 @@
-module.exports = function(name, engine, handler, option){
-  var M = class extends engine.Model {}
+module.exports = function(name, conn, option){
+  var M = class extends conn.engine.Model {}
 
   /* name = Name of this file without ext
-   * engine = Engine which retrieved via require()
-   * handler = Instantiated Engine.
+   * conn = Instantiated Engine.
    * option = factory.option from config/STAGE/database.js
    */
 
@@ -19,7 +18,7 @@ module.exports = function(name, engine, handler, option){
    */
 
   M.init({
-    label: engine.DataTypes.STRING
+    label: conn.engine.DataTypes.STRING
   }, option);
 
   return M;
