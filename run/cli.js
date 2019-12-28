@@ -22,9 +22,8 @@ const path = require('path');
       await c.open();
       await c.execute();
       return c;
-
     }catch(e){
-      console.log("Uncaught Error:");
+      console.log("ColloquistExceptionCLI:");
       console.error(e);
     }
   }

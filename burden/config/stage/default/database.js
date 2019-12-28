@@ -118,7 +118,14 @@ module.exports = {
      */
     },
     factory: {
-      option: {},
+      option: {
+        toObject: {
+          retainKeyOrder: true
+        },
+        toJSON: {
+          retainKeyOrder: true
+        }
+      },
       /* Builds ORM Model objects.
       init: async function(ins, conn, config){
         // Do Your Thing.
