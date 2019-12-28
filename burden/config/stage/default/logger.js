@@ -15,7 +15,7 @@ module.exports = {
    */
   level: 'all',
 
-  output: ['console', 'file', 'database:mongodb' /* 'database:mongodb' */],
+  output: ['console', 'file', /* 'database:mongodb' */],
 
   /* Rotation configulation.
    */
