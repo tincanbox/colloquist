@@ -1,3 +1,8 @@
+/* ini.js
+ * This file should include all path definitions
+ * to initialize `colloquist` requisities.
+ * (e.g. drafts, server, mail... so on)
+ */
 const path = require('path');
 
 let e = {path: {}};

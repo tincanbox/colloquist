@@ -5,7 +5,7 @@ module.exports = class extends Story {
   constructor(core){
     super(core);
 
-    this.remini([
+    this.preface([
     ]);
 
     this.premise([
@@ -24,7 +24,6 @@ module.exports = class extends Story {
   async chapter_sample(param, prev){
 
     await this.pull('https://news.yahoo.com/');
-
 
     /* Waits and finds target elements.
      */
@@ -51,9 +50,10 @@ module.exports = class extends Story {
 
   async chapter_output(param, prev){
     for(var r of prev){
-      //
+      // Shows One by One logs.
       this.monolog('yahoo-news-headline', r);
     }
+    return prev;
   }
 
 }

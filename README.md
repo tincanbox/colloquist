@@ -1,6 +1,8 @@
 ## Preparation
 
+colloquist requires the libraries described below.
 Use sudo if you need enough permission.
+(e.g. Installing within SELinux environment.)
 
 ### Ubuntu
 
@@ -25,7 +27,8 @@ Use sudo if you need enough permission.
 
 ## Usage
 
-Create your project directory.
+At first, create your project directory.
+And then, enter in new project directory.
 
     mkdir ./myproject
     cd ./myproject
@@ -79,7 +82,71 @@ You will see burden directory like below. `burden` is portable colloquist enviro
 
 
 Now let's run demo Story.
+You can find entry-point of this command at:
+PROJECTDIR/burden/shelf/draft/sample/yahoo-news.js
 
-    npx colloquist run sample/basic
+    npx colloquist run sample/yahoo-news
 
+
+### CLI Options
+
+#### create
+
+Copies default `burden` directory to your current working directory.
+Basically, you should call this command from your project-root directory.
+
+    npx colloquist create
+
+#### run
+
+Calls draft with its name and parameters.
+
+    npx colloquist run <draft_name> <options>
+
+* -p, --param
+
+  You can supply arguments with `-p` option.
+
+        npx colloquist run something -p foo=1 baz=2 bar=3
+
+* --gui (<-> -h, --headless)
+
+  You can run Puppeteer with GUI (headless:true is default.)
+
+        npx colloquist run something --gui
+
+* -s, --slomo,
+
+  You can run Puppeteer with slo-motion(number-unit is `milli-seconds`.)
+
+
+#### tell
+
+Calls a Story directly.
+
+    npx colloquist tell <story_name> <options>
+
+
+#### server
+
+    npx colloquist server <server_name> <options>
+
+* -n,--name (default)
+
+  Below example calls shelf/server/SampleServer.js
+
+      npx colloquist server -n SampleServer
+
+* -o, --option
+
+  Supplies options to ```start()``` method.
+
+
+#### help
+
+W.I.P.
+
+#### version
+
+W.I.P.
 

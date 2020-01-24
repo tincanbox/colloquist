@@ -6,8 +6,9 @@ module.exports = [
   // Call story/sample
   {
     /* A name of calling Story file.
+     * Check shelf/story/sample/yahoo-news file.
      */
-    story: 'sample.basic',
+    story: 'sample.yahoo-news',
     /* Automatically opens Page OR BrowserContext on Story initialization.
      * Set false if you want to pause.
      * default = true
@@ -36,7 +37,11 @@ module.exports = [
      * default = {}
      */
     premise: {
-      param_01: 123
+      /* You can call this `parameter` in another word.
+       * Put what you want, will be passed as the chapter_*'s second argument.
+       *
+       * something: 123
+       */
     }
   }
 
