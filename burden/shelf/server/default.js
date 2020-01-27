@@ -12,12 +12,14 @@ module.exports = class {
     this.core = core;
     this.config = config;
     this.engine = engine;
-
     this.code_list = require('./codes.json');
 
+    /* Blocking URL RegExp list */
     this.block_list = [
+      /*
       /favicon.ico$/
-    ]
+      */
+    ];
   }
 
   /* @required
@@ -28,25 +30,25 @@ module.exports = class {
     this.bind_post_middleware();
   }
 
+  /* Closes express.Response with specific http-code.
+   */
   async close(res, code){
     let m = this.code_list.find((a) => { return a.code == (code + ""); });
     if(m){
-      res.status(code).end(code + " " + m.phrase);
+      res.status(code || 500).end(code + " " + m.phrase);
     }
   }
 
-  /* Binds shared middlewares.
+  /* Binds pre-route middlewares.
    */
   bind_pre_middleware(){
     this.engine.use('*', (req, res, next) => {
-      /* DO SOME GLOBAL THINGS.
-       */
+      /* DO SOME GLOBAL THINGS. */
       next();
     });
     this.engine.use((req, res, next) => {
       // Blocks stupid request.
-      console.log("REQUESTED", req.url);
-      var mt = this.block_list.filter((v) => {
+      let mt = this.block_list.filter((v) => {
         return req.url.match(v);
       });
       if(mt.length > 0){
@@ -57,6 +59,8 @@ module.exports = class {
     });
   }
 
+  /* Binds post-route middlewares.
+   */
   bind_post_middleware(){
     // NOT matched at all.
     this.engine.use((req, res) => {
@@ -68,6 +72,7 @@ module.exports = class {
    */
   bind_route(){
     this.engine.use('/api/*', (req, res, next) => {
+      res.type('json');
       next();
     });
 
@@ -99,13 +104,15 @@ module.exports = class {
           res.send(t);
         });
     });
+
   }
 
-  /*
+  /* Retrieves uploaded files info as
+   * {name_of_input: IncomingForm}
    */
   async retrieve_upload_file(req){
     return new Promise((resolve, reject) => {
-      var f = new formidable.IncomingForm();
+      let f = new formidable.IncomingForm();
       f.parse(req, (err, fields, files) => {
         if(err){
           reject(err);
@@ -120,29 +127,36 @@ module.exports = class {
   /* Redirects URL to core.recite().
    */
   async redirect_request(req, res){
-    var t = req.url.replace(/^\/run\//, "");
+    let t = req.url.replace(/^\/run\//, "");
     if(!t){
       res.status(404).end();
     }else{
-      await this.core.recite(t, {...(req.query || {}), ...(req.body || {}), ...{request: req, response: res} })
-        .then((r) => res.json(r));
+      await this.core.recite(
+        t,
+        {...(req.query || {}), ...(req.body || {}), ...{request: req, response: res} }
+      )
+      .then((r) => res.json(r));
     }
   }
 
+  /* Generates rendered HTML with template-path.
+   */
   async render(pathcomp, data){
-    var t = await this.core.template.read(pathcomp);
-    var d = FM.ob.merge({}, {yield:"", data:{}}, data);
-    var view = await this.core.template.render(t, d);
-    return view;
+    let t = await this.core.template.read(pathcomp);
+    let d = FM.ob.merge({}, {yield:"", data:{}}, data);
+    let v = await this.core.template.render(t, d);
+    return v;
   }
 
+  /* Generates HTML as yielded contents with view/layout.
+   */
   async render_page(group, req, param){
     let rg = new RegExp("^/" + group + "/");
-    var t = req.url.split("?").shift().replace(rg, "");
+    let t = req.url.split("?").shift().replace(rg, "");
     t = "view/" + (t || "index");
     try{
-      var y = await this.render(t.split("/").filter(r => r), param);
-      var l = await this.render(['view', 'layout'], FM.ob.merge({
+      let y = await this.render(t.split("/").filter(r => r), param);
+      let l = await this.render(['view', 'layout'], FM.ob.merge({
         yield: y,
         query: req.query || {},
         post: req.body || {},
