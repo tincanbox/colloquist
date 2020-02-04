@@ -33,8 +33,14 @@ module.exports = class extends Story {
         });
 
         // Main loop.
-        w.run((data) => {
+        w.run(async (data) => {
           let ret = [];
+          await (new Promise((res) => {
+            console.log("waiting", data);
+            setTimeout(() => {
+              res();
+            }, 1000)
+          }));
           // Do Your Heavy Things.
           for(let i = 0; i < 100; i++){
             ret.push(data + ":" + i);
@@ -53,9 +59,13 @@ module.exports = class extends Story {
 
     }));
 
-    handler.then(() => {
-      console.log("RESULT", res);
-    });
+    handler
+      .then(() => {
+        console.log("RESULT", res);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
 
   }
 
