@@ -29,18 +29,17 @@ module.exports = class extends Story {
 
         // Generates handler object.
         let w = this.core.backroom.pop({
-          workerData: ver
+          data: ver
         });
 
         // Main loop.
-        w.run((port, data) => {
+        w.run((data) => {
           let ret = [];
           // Do Your Heavy Things.
           for(let i = 0; i < 100; i++){
             ret.push(data + ":" + i);
           }
-          // then send a message.
-          port.postMessage(ret);
+          return ret;
         }).then((r) => {
           res = res.concat(r);
           setTimeout(() => {

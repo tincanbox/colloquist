@@ -5,7 +5,7 @@ module.exports = class extends Story {
   constructor(core){
     super(core);
 
-    this.remini([
+    this.preface([
     ]);
 
     this.premise([
@@ -36,7 +36,6 @@ module.exports = class extends Story {
     }
 
     return fls;
-
   }
 
 }

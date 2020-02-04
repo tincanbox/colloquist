@@ -51,8 +51,8 @@ module.exports = {
    * Scenario class handles concurrent-working story queue counts.
    * Increasing this means.. Raised number of concurrent Puppeteer Page or BrowserContext.
    * The isolated Scene always opens new BrowserContext,
-   * while default Scene uses same BrowserContext and opens Page instance.
-   * See Scene.open() for detail behaivior.
+   * while default Scene uses same BrowserContext and opens a Page instance.
+   * See Scene.open() for detailed behaivior.
    */
   "max_concurrent_work": 2,
   /* Blocks specific contents via Page's `request` event.

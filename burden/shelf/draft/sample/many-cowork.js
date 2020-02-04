@@ -1,8 +1,10 @@
 module.exports = [
-  [...Array(10).keys()].map((v) => {
+  [...Array(5).keys()].map((v) => {
     return {
       story: 'sample/many-cowork',
-      isolated: false,
+      space: {
+        isolated: false
+      },
       premise: {
         value: v
       }
