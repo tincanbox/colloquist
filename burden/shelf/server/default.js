@@ -89,7 +89,7 @@ module.exports = class {
         })
     });
 
-    this.engine.get('/gui/*', (req, res) => {
+    this.engine.get('/*', (req, res) => {
       res.type('html');
       this.render_page("gui", req)
         .then((t) => {
@@ -97,7 +97,7 @@ module.exports = class {
         });
     });
 
-    this.engine.post('/gui/*', (req, res) => {
+    this.engine.post('/*', (req, res) => {
       res.type('html');
       this.render_page("gui", req, {post: req.body || {}})
         .then((t) => {
@@ -152,7 +152,7 @@ module.exports = class {
    */
   async render_page(group, req, param){
     let rg = new RegExp("^/" + group + "/");
-    let t = req.url.split("?").shift().replace(rg, "");
+    let t = req.url.split("?").shift().replace(rg, "").replace(/^\//, "");
     t = "view/" + (t || "index");
     try{
       let y = await this.render(t.split("/").filter(r => r), param);
