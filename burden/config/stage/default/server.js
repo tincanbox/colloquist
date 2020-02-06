@@ -9,6 +9,16 @@ module.exports = {
      */
     port: 9000,
 
+    /* string with an adjective `/` will be treated as the absolute-path.
+     * /abs/to/your/dir
+     *
+     * string starting with non-`/` char will be treated as the relative-path from `burden`.
+     * your/pub/in/burden
+     */
+    asset: [
+      // ["static", "your/public/in/burden"]
+    ],
+
     session: {
       secret: 'YOURSECRET',
       resave: false,
