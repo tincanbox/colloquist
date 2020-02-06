@@ -7,6 +7,7 @@
 const formidable = require('formidable');
 const fs = require('fs').promises;
 const path = require('path');
+const uuid = require('uuid');
 
 module.exports = class {
 
@@ -51,6 +52,7 @@ module.exports = class {
     // Global Handler
     this.engine.use('*', (req, res, next) => {
       /* DO SOME GLOBAL THINGS. */
+      req.uuid = uuid();
       next();
     });
     // Bloking
@@ -189,12 +191,15 @@ module.exports = class {
     let t = req.url.split("?").shift().replace(rg, "").replace(/^\//, "");
     t = "view/" + (t || "index");
     console.log("View Request:", t);
-    let y = await this.render(t.split("/").filter(r => r), param);
-    let l = await this.render(['view', 'layout'], FM.ob.merge({
-      yield: y,
+    let m = FM.ob.merge({
+      token: req.uuid,
       query: req.query || {},
       post: req.body || {},
-    }, param));
+    }, param);
+    let y = await this.render(t.split("/").filter(r => r), m);
+    let l = await this.render(['view', 'layout'], Object.assign({
+      yield: y
+    }, m));
     return l;
   }
 

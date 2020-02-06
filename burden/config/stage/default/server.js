@@ -26,12 +26,6 @@ module.exports = {
       cookie: { secure: true }
     },
 
-    /*
-     */
-    router: {
-      mergeParams: true
-    },
-
     /* Adaptor for the shelf/server/default instance.
      */
     prepare: async (core, handler, config) => {
@@ -51,4 +45,5 @@ module.exports = {
       return con;
     }
   }
+
 };
