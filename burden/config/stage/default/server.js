@@ -34,11 +34,21 @@ module.exports = {
 
     /* Adaptor for the shelf/server/default instance.
      */
-    prepare: async function(/* core, engine, handler, config */){
+    prepare: async (core, handler, config) => {
       /* Do Your Things. */
-      return {
-        "something": 1234
-      };
+      let f = core.server.framework;
+      var e = new f();
+      e.use(f.json());
+      e.use(f.urlencoded({ extended: true }));
+      e.use(core.server.session(config.session || {}));
+
+      let con = new handler(core, e, config);
+      await con.init();
+
+      e.listen(config.port);
+      core.debug("Server is listening on Port:" + config.port);
+
+      return con;
     }
   }
 };
