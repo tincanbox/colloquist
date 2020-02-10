@@ -86,7 +86,7 @@ module.exports = class {
           next();
         })
         .catch((e) => {
-          this.send_error(res, e);
+          this.core.log_error(e);
         })
     })
     // Assets
@@ -139,7 +139,7 @@ module.exports = class {
       this.redirect_request(req, res, next);
     });
 
-    this.engine.get('/bucket', (req, res, next) => {
+    this.engine.get('/bucket', (req, res) => {
       if(req.query.file){
         res.download(this.config.path.expose.bucket + path.sep + req.query.file);
         return;
@@ -212,14 +212,14 @@ module.exports = class {
           req.file[field] = file;
         })
         .on('aborted', function (err) {
-          console.log("Aborted");
+          console.log("Aborted", err);
         })
         .on('end', function () {
           let o = FM.ob.unserialize(fds);
           req.body = Object.assign(req.body || {}, o);
         });
       // lets go
-      form.parse(req, (err, fields, files) => {
+      form.parse(req, (err /*, fields, files */) => {
         if(err){
           reject(err);
         }else{
@@ -237,9 +237,12 @@ module.exports = class {
       res.status(404).end();
     }else{
       let p = {...(req.query || {}), ...(req.body || {}), ...{file: req.file || {}} };
-      Object.defineProperty(p, 'server', {value: this, enumerable: false});
-      Object.defineProperty(p, 'request', {value: req, enumerable: false});
-      Object.defineProperty(p, 'response', {value: res, enumerable: false});
+      // Scene arguments.
+      let c = { enumerable: false, configurable: false };
+      Object.defineProperty(p, 'server', Object.assing({value: this}, c));
+      Object.defineProperty(p, 'request', Object.assing({value: req}, c));
+      Object.defineProperty(p, 'response', Object.assing({value: res}, c));
+      // Lets go.
       await this.core.tell(t, p)
       .then((r) => {
         res.type('json');

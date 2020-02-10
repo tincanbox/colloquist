@@ -27,8 +27,9 @@ module.exports = class extends Story {
     }
 
     var fls = {};
-    for(var f in transaction.request.file){
-      var file = transaction.request.file[f];
+    var request = this.scene.argument.request;
+    for(var f in request.file){
+      var file = request.file[f];
       fls[f] = fls[f] || {};
       ['name', 'type', 'size'].forEach((k) => {
         fls[f][k] = file[k];
