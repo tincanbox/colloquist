@@ -239,9 +239,9 @@ module.exports = class {
       let p = {...(req.query || {}), ...(req.body || {}), ...{file: req.file || {}} };
       // Scene arguments.
       let c = { enumerable: false, configurable: false };
-      Object.defineProperty(p, 'server', Object.assing({value: this}, c));
-      Object.defineProperty(p, 'request', Object.assing({value: req}, c));
-      Object.defineProperty(p, 'response', Object.assing({value: res}, c));
+      Object.defineProperty(p, 'server', Object.assign({value: this}, c));
+      Object.defineProperty(p, 'request', Object.assign({value: req}, c));
+      Object.defineProperty(p, 'response', Object.assign({value: res}, c));
       // Lets go.
       await this.core.tell(t, p)
       .then((r) => {
