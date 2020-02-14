@@ -60,14 +60,46 @@ module.exports = class {
    */
   async bind_pre_middleware(){
     // Global Handler
-    this.engine.use('*', (req, res, next) => {
+    this.engine.use((req, res, next) => {
       /* DO SOME GLOBAL THINGS. */
       console.log("Requested URL: ", req.url);
       req.token = uuid();
       req.body = req.body || {};
       req.query = req.query || {};
+      //
+      if(this.config.url_auth){
+        var sig = this.config.url_auth.split(":");
+        if(sig.length < 2){
+          sig = ["SIGNATURE", sig[0]];
+        }
+        if(!req.query[sig[0]] || req.query[sig[0]] != sig[1]){
+          this.close(res, 403);
+          return;
+        }
+      }
       next();
     });
+    // BASIC auth
+    if(this.config.auth.basic && this.config.auth.basic.length){
+      this.engine.use((req, res, next) => {
+        // parse login and password from headers
+        const b64auth = (req.headers.authorization || '').split(' ')[1] || '';
+        const [usr, psw] = new Buffer(b64auth, 'base64').toString().split(':');
+        // Verify login and password are set and correct
+        var cred = this.config.auth.basic;
+        if(typeof cred === 'string')
+          cred = [cred];
+        for(var au of cred){
+          if(typeof au === 'string')
+            au = au.split(":");
+          if (usr && psw && (usr === au[0]) && (psw === au[1]))
+            return next()
+        }
+        // Access denied
+        res.set('WWW-Authenticate', 'Basic realm="401"');
+        return this.close(res, 401);
+      });
+    }
     // Bloking
     this.engine.use((req, res, next) => {
       // Blocks stupid request.
