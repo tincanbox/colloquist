@@ -18,9 +18,7 @@ module.exports = class {
     this.code_list = require('./codes.json');
     /* Blocking URL RegExp list */
     this.block_list = [
-      /*
-      /favicon.ico$/
-      */
+      // /favicon.ico$/
     ];
   }
 
