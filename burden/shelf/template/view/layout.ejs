@@ -45,8 +45,7 @@ const ACCESS_TOKEN = '<%= token %>';
   }
 
   APP.flush = function(){
-    for(var q of __queue_storage)
-      __queue_storage.call();
+    for(var q of __queue_storage) q.call();
   }
 
   APP.request = function(type, url, data){
