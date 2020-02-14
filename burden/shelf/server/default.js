@@ -171,8 +171,7 @@ module.exports = class {
 
     this.engine.get('/bucket', (req, res) => {
       if(req.query.file){
-        res.download(this.config.path.expose.bucket + path.sep + req.query.file);
-        return;
+        return res.download(this.config.path.expose.bucket + path.sep + req.query.file);
       }
       this.close(res, 404);
     });
