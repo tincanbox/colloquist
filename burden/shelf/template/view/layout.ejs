@@ -77,12 +77,12 @@ const ACCESS_TOKEN = '<%= token %>';
           + ' role="status" aria-hidden="true" style=""></div>'
         + '&nbsp;&nbsp;<span style="font-size: 1rem;">Syncing...</span>'
         + '</div>' });
-    return request(type, url, p)
+    return APP.request(type, url, p)
       .then((r) => {
-        note.close();
+        tm.close();
         return r; })
       .catch((e) => {
-        note.close();
+        tm.close();
         throw e; });
   }
 
