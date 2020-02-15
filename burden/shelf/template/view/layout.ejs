@@ -126,7 +126,7 @@ const ACCESS_TOKEN = '<%= token %>';
 // Flushing queues.
 ( document.readyState === "complete" ||
   (document.readyState !== "loading" && !document.documentElement.doScroll)
-) ? APP.flush();
+) ? APP.flush()
   : document.addEventListener("DOMContentLoaded", APP.flush) ;
 </script>
 </body>
