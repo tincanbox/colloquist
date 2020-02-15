@@ -50,7 +50,28 @@ const ACCESS_TOKEN = '<%= token %>';
 
   APP.request = function(type, url, data){
     let f = new FormData();
-    for(let k in data) f.append(k, data[k]);
+    let d = {v:{},o:{},a:{}};
+    var k = "";
+    for(k in data){
+      var v = data[k];
+      var dk = "v";
+      if(v instanceof Array){
+        dk = "a";
+      }else{
+        if(typeof v == 'object'){
+          if(v.constructor == Object){
+          }else{
+            dk = "o";
+          }
+        }
+      }
+      d[dk][k] = data[k];
+    }
+    let s = [];
+    s = s.concat(FM.ob.serialize(d.v));
+    s = s.concat(FM.ob.serialize(d.a));
+    for(k of s) f.append(k[0], k[1]);
+    for(k in d.o) f.append(k, d.o[k]);
     return (new Promise((res, rej) => {
       $.ajax({
         type: "post", url: url,
