@@ -70,7 +70,7 @@ const ACCESS_TOKEN = '<%= token %>';
   }
 
   APP.request_gently = function(type, url, p){
-    let note = notification({
+    let tm = APP.notify({
       title: ''
         + '<div class="d-flex align-items-center">'
         + '<div class="spinner-border ml-auto text-primary"'
@@ -84,6 +84,17 @@ const ACCESS_TOKEN = '<%= token %>';
       .catch((e) => {
         note.close();
         throw e; });
+  }
+
+  APP.notify = function(p){
+    return Swal.fire(Object.assign({
+      title: (typeof p === 'string') ? p : "",
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      showCloseButton: false,
+      showCancelButton: false,
+    }, p));
   }
 
   APP.download = function(filename, text) {
