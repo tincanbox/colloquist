@@ -6,7 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-<title><%= meta.title || "No Title" %></title>
+<title>{{ meta.title or "NENIU TITOLO" }}</title>
+<meta name="keywords" content="{{ meta.keywords or "" }}">
+<meta name="description" content="{{ meta.description or "" }}">
 
 <!-- jQuery -->
 <script
@@ -33,7 +35,7 @@
 </style>
 <script>
 const APP = {};
-const ACCESS_TOKEN = '<%= token %>';
+const ACCESS_TOKEN = '{{ token }}';
 (() => {
 
   // Simple APP handler.
@@ -58,12 +60,9 @@ const ACCESS_TOKEN = '<%= token %>';
       if(v instanceof Array){
         dk = "a";
       }else{
-        if(typeof v == 'object'){
-          if(v.constructor == Object){
-          }else{
+        if(typeof v == 'object')
+          if(v.constructor != Object)
             dk = "o";
-          }
-        }
       }
       d[dk][k] = data[k];
     }
@@ -140,9 +139,11 @@ const ACCESS_TOKEN = '<%= token %>';
 </head>
 <body style="padding-top: 4.5rem;">
 <nav class="navbar navbar-dark fixed-top bg-dark">
-  <a class="navbar-brand" href="#">Sample</a>
+  <a class="navbar-brand" href="/">NENIU TITOLO</a>
 </nav>
-<div id="container" class="container"><%- yield %></div>
+<div id="container" class="container">
+  {% block yield %}{% endblock %}
+</div>
 <script>
 // Flushing queues.
 ( document.readyState === "complete" ||

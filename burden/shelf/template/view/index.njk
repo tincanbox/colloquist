@@ -1,0 +1,14 @@
+{{ _.assign(meta, {
+  title: "",
+  description: "YOUR DESCRIPTION"
+}) }}
+
+{% extends "./layout.njk" %}
+
+{# Contents #}
+{% block yield %}
+  <pre>
+  <div>Hello World.</div>
+  <p>TOKEN: {{ token }}</p>
+  </pre>
+{% endblock %}

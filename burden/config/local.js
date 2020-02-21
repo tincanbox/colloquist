@@ -18,6 +18,6 @@ module.exports = {
    * If you want to use colloquist as browser-automator,
    * please install chromium individually.
    */
-  //puppet: { executable: "/snap/bin/chromium" }
+  puppet: { executable: "/snap/bin/chromium" }
 
 }
