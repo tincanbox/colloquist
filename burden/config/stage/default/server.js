@@ -22,9 +22,15 @@ module.exports = {
      * your/pub/in/burden
      */
     expose: [
-      ["asset", "shelf/server/public/asset"],
-      ["bucket", "shelf/server/public/bucket"],
+      ["asset", "shelf/server/default/public/asset"],
+      ["bucket", "shelf/server/default/public/bucket"],
     ],
+
+    block: {
+      type: [],
+      url: [
+      ]
+    },
 
     session: {
       secret: 'YOURSECRET',

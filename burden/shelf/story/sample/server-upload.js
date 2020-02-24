@@ -1,5 +1,11 @@
 const Story = disc("class/Story");
 
+/* Thsi is a very simple example of HTTP based file upload Story.
+ * Use `npx colloquist server` and launch your default server.
+ * And then, access to '/sample/run'. You can see HTML result of page/sample/run.njk .
+ * You can request Story execution as a command. Try '/sample/server-upload'.
+ */
+
 module.exports = class extends Story {
 
   constructor(core){
@@ -20,14 +26,15 @@ module.exports = class extends Story {
 
   /* play your way with sample chapter.
    */
-  async chapter_retrieve(transaction){
+  async chapter_retrieve(signal){
 
-    if(!transaction.request){
+    var request = this.scene.argument.request;
+
+    if(!request){
       throw new Error("Invalid Request");
     }
 
     var fls = {};
-    var request = this.scene.argument.request;
     for(var f in request.file){
       var file = request.file[f];
       fls[f] = fls[f] || {};

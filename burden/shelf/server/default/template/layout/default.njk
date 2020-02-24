@@ -47,34 +47,58 @@ const ACCESS_TOKEN = '{{ token }}';
   }
 
   APP.flush = function(){
-    for(var q of __queue_storage) q.call();
+    for(var q of __queue_storage) q.call(APP);
   }
 
-  APP.request = function(type, url, data){
-    let f = new FormData();
-    let d = {v:{},o:{},a:{}};
-    var k = "";
-    for(k in data){
-      var v = data[k];
-      var dk = "v";
-      if(v instanceof Array){
-        dk = "a";
-      }else{
-        if(typeof v == 'object')
-          if(v.constructor != Object)
-            dk = "o";
-      }
-      d[dk][k] = data[k];
+  APP.GUI = function(o, opt){
+    var page = null, vop;
+    if(typeof o == "string"){
+      vop = Object.assign({}, opt || {})
+      vop.el = o;
+    }else{
+      vop = Object.assign({}, o || {})
     }
-    let s = [];
-    s = s.concat(FM.ob.serialize(d.v));
-    s = s.concat(FM.ob.serialize(d.a));
-    for(k of s) f.append(k[0], k[1]);
-    for(k in d.o) f.append(k, d.o[k]);
+    return {
+      register: (comp, opt) => {
+        if(typeof comp == "string"){
+          APP.component(comp, opt);
+        }else{
+          for(let c in comp){
+            APP.component(c, comp[c]);
+          }
+        }
+      },
+      init: () => {
+        if(page == null){
+          page = new Vue(vop);
+        }
+        return page;
+      }
+    };
+  }
+
+  APP.component = function(name, opt){
+    let d = {};
+    let t = $('#template--' + name).html();
+    if(t){
+      d.template = t;
+    }else{
+      if(d.template || d.el){
+      }else{
+        d.template = '<section id="vue-component--' + name + '"></section>';
+      }
+    }
+    return Vue.component(name, Object.assign(d, opt));
+  }
+
+  APP.request = function(type, url, opt){
+    let O = Object.assign({}, opt || {});
+    if(O.data){
+      O.data = APP.generate_form_data(O.data);
+    }
     return (new Promise((res, rej) => {
-      $.ajax({
+      $.ajax(Object.assign({
         type: "post", url: url,
-        data: f,
         processData: false, contentType: false,
         complete: (r) => {
           console.info("RESPONSE:", r);
@@ -85,12 +109,43 @@ const ACCESS_TOKEN = '{{ token }}';
             res(result.data);
         },
         error: rej
-      });
+      }, O));
     }));
+  }
+
+  APP.generate_form_data = function(data){
+    let F;
+    if(data instanceof FormData){
+      F = data;
+    }else if(data){
+      F = new FormData();
+      let d = {v:{},o:{},a:{}};
+      var k = "";
+      for(k in data){
+        var v = data[k];
+        var dk = "v";
+        if(v instanceof Array){
+          dk = "a";
+        }else{
+          if(typeof v == 'object')
+          if(v.constructor != Object)
+          dk = "o";
+        }
+        d[dk][k] = v;
+      }
+      let s = [];
+      s = s.concat(FM.ob.serialize(d.v));
+      s = s.concat(FM.ob.serialize(d.a));
+      for(k of s) F.append(k[0], k[1]);
+      for(k in d.o) F.append(k, d.o[k]);
+    }
+    return F;
   }
 
   APP.request_gently = function(type, url, p){
     let tm = APP.notify({
+      timer: undefined,
+      timerProgressBar: false,
       title: ''
         + '<div class="d-flex align-items-center">'
         + '<div class="spinner-border ml-auto text-primary"'
@@ -111,6 +166,8 @@ const ACCESS_TOKEN = '{{ token }}';
       title: (typeof p === 'string') ? p : "",
       toast: true,
       position: 'top-end',
+      timer: 1500,
+      timerProgressBar: true,
       showConfirmButton: false,
       showCloseButton: false,
       showCancelButton: false,

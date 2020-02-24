@@ -1,8 +1,12 @@
 /* Default server implementation.
- * You can completely overrides Server's behavior via this file.
- * (You prefer other frameworks? as you wish.)
+ * This definition is really simple one.
+ * You may need user-auth flow, security-check flow as well.
+ * But you can completely overrides Server's behavior via each bootstrap.js file.
+ * (You prefer other frameworks? as you wish.
+ *  Just stop using server.framework as main server constructor.)
  *
  * This Class should have only init() method to hook the server instantiation.
+ * `npx colloquist server %YOUR_SERVER_NAME%` calls your bootstrap.init() .
  */
 const formidable = require('formidable');
 const fs = require('fs').promises;
@@ -15,12 +19,7 @@ module.exports = class {
     this.core = core;
     this.config = config;
     this.engine = new this.core.server.framework;
-    this.code_list = require('./codes.json');
-
-    /* Blocking URL RegExp list */
-    this.block_list = [
-      // /favicon.ico$/
-    ];
+    this.response_code_list = require('../codes.json');
   }
 
   /* @required
@@ -44,9 +43,9 @@ module.exports = class {
   async close(arg, code, callback){
     let [req, res] = arg;
 
-    let info = this.code_list.find((a) => { return a.code == (code + ""); });
+    let info = this.response_code_list.find((a) => { return a.code == (code + ""); });
     if(!info){
-      info = this.code_list.find((a) => { return a.code == "500"; });
+      info = this.response_code_list.find((a) => { return a.code == "500"; });
     }
     res.status(info.code);
 
@@ -105,22 +104,34 @@ module.exports = class {
     // Bloking
     this.engine.use((req, res, next) => {
       // Blocks stupid request.
-      let mt = this.block_list.filter((v) => {
-        return req.url.match(v);
-      });
+      let mt = [];
+      for(let bu of this.config.block.url){
+        if(req.url.match(bu)){
+          mt.push(bu);
+          break;
+        }
+      }
+      let tp = req.get('content-type');
+      for(let bt of this.config.block.type){
+        if(tp.match(bt)){
+          mt.push(bt);
+          break;
+        }
+      }
       if(mt.length > 0){
-        console.log("  -> Blocked");
+        console.log("  -> Blocked: ", mt.join(", "));
         this.close(arguments, 403);
       }
       next();
     });
+    // Other Globals
     this.engine.use((req, res, next) => {
       this.retrieve(req)
         .then(() => {
           next();
         })
         .catch((e) => {
-          this.core.log_error(e);
+          this.core.logger.error(e);
         })
     })
     // Assets
@@ -141,7 +152,7 @@ module.exports = class {
           this.core.logger.debug("asset path: " + nm + " => " + p);
         }
       }catch(e){
-        this.core.log_error(new Error("Invalid asset-dir config: " + e.message));
+        this.core.logger.error(new Error("Invalid asset-dir config: " + e.message));
       }
     }else{
       this.core.logger.debug("sever.asset is disabled.");
@@ -167,16 +178,18 @@ module.exports = class {
 
     this.engine.get('/run/*', (req, res, next) => {
       res.type('json');
-      this.redirect_request(req, res, next)
-        .then(res.json)
-        .catch(res.json);
+      let url = req.url.replace(/^\/run\//, "");
+      this.redirect_request(url, req, res, next)
+        .then(r => res.json(r))
+        .catch(r => res.json(r));
     });
 
     this.engine.post('/run/*', (req, res, next) => {
       res.type('json');
-      this.redirect_request(req, res, next)
-        .then(res.json)
-        .catch(res.json);
+      let url = req.url.replace(/^\/run\//, "");
+      this.redirect_request(url, req, res, next)
+        .then(r => res.json(r))
+        .catch(r => res.json(r));
     });
 
     this.engine.get('/bucket', (req, res) => {
@@ -226,7 +239,7 @@ module.exports = class {
     // type
     if(ct.match('text/*')){
       try{
-        let html = await this.render(['view', 'error', info.code], {
+        let html = await this.render([, 'error', info.code], {
           content: content,
           message: msg
         });
@@ -252,20 +265,20 @@ module.exports = class {
       let fds = [];
       // Events
       form
-        .on('field', function (k, v) {
+        .on('field', (k, v) => {
           fds.push([k, v]);
         })
-        .on('error', function(err){
+        .on('error', (err) => {
           reject(err);
         })
-        .on('file', function (field, file) {
+        .on('file', (field, file) => {
           req.file = req.file || {};
           req.file[field] = file;
         })
-        .on('aborted', function (err) {
+        .on('aborted', (err) => {
           self.core.logger.debug("Request Aborted");
         })
-        .on('end', function () {
+        .on('end', () => {
           let o = FM.ob.unserialize(fds);
           req.body = Object.assign(req.body || {}, o);
         });
@@ -285,28 +298,31 @@ module.exports = class {
    * ( req:IncomingMessage
    * ) -> void
    */
-  async redirect_request(...arg){
+  async redirect_request(url, ...arg){
     let [req, res] = arg;
-    let t = req.url.replace(/^\/run\//, "");
-    if(!t){
-      this.close(arg, 404);
-    }else{
-      let p = {...(req.query || {}), ...(req.body || {}), ...{file: req.file || {}} };
-      // Scene arguments.
-      let c = { enumerable: false, configurable: false };
-      Object.defineProperty(p, 'server', Object.assign({value: this}, c));
-      Object.defineProperty(p, 'request', Object.assign({value: req}, c));
-      Object.defineProperty(p, 'response', Object.assign({value: res}, c));
-      // Lets go.
-      let r = await this.core.tell(t, p)
-        .then((r) => {
-          return { data: r };
-        })
-        .catch((e) => {
-          return { error: e };
-        });
+    try{
+      if(!url){
+        this.close(arg, 404);
+      }else{
+        let p = {...(req.query || {}), ...(req.body || {}), ...{file: req.file || {}} };
+        // Scene arguments.
+        let c = { enumerable: false, configurable: false };
+        Object.defineProperty(p, 'server', Object.assign({value: this}, c));
+        Object.defineProperty(p, 'request', Object.assign({value: req}, c));
+        Object.defineProperty(p, 'response', Object.assign({value: res}, c));
+        // Lets go.
+        let r = await this.core.tell(url, p)
+          .then((r) => {
+            return { data: r };
+          })
+          .catch((e) => {
+            return { error: e.message };
+          });
 
-      return r;
+        return r;
+      }
+    }catch(e){
+      return { error: e.message };
     }
   }
 
@@ -317,7 +333,8 @@ module.exports = class {
    */
   async render(pathcomp, data){
     let d = FM.ob.merge({}, {yield:"", data:{}}, data);
-    let r = await this.core.template.load(pathcomp, d);
+    let f = ['server', 'default', 'template'].concat(pathcomp);
+    let r = await this.core.template.load(f, d);
     return r;
   }
 
@@ -330,8 +347,8 @@ module.exports = class {
    */
   async render_direct_view(req, param){
     let pm = param || {};
-    let t = req.url.split("?").shift().replace(/^\//, "");
-    t = "view/" + (t || "index");
+    let t = req.url.split("?").shift();
+    t = "/page/" + ((!t || t.match(/\/$/)) ? t + "index" : t);
     let m = FM.ob.merge({
       token: req.token,
       query: req.query || {},
