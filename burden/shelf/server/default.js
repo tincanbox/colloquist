@@ -189,24 +189,20 @@ module.exports = class {
     this.engine.get('/*', (...arg) => {
       let [req, res] = arg;
       res.type('html');
-      this.render_trespass(req, {})
-        .then((t) => {
-          res.send(t);
-        })
+      this.render_direct_view(req, {})
+        .then((r) => { res.send(r); })
         .catch((e) => {
-          this.close(arg, 500, (arg, info) => { this.show_error(arg, info, e); });
+          this.handler_render_error(arg, e);
         });
     });
 
     this.engine.post('/*', () => {
       let arg = [req, res] = arguments;
       res.type('html');
-      this.render_trespass(req, {})
-        .then((t) => {
-          res.send(t);
-        })
+      this.render_direct_view(req, {})
+        .then((r) => { res.send(r); })
         .catch((e) => {
-          this.close(arg, 500, (arg, info) => { this.show_error(arg, info, e); });
+          this.handler_render_error(arg, e);
         });
     });
   }
@@ -332,7 +328,7 @@ module.exports = class {
    *   param  = object
    * ) -> Promise -> String
    */
-  async render_trespass(req, param){
+  async render_direct_view(req, param){
     let pm = param || {};
     let t = req.url.split("?").shift().replace(/^\//, "");
     t = "view/" + (t || "index");
@@ -350,6 +346,15 @@ module.exports = class {
     }, pm);
     let y = await this.render(t.split("/").filter(r => r), m);
     return y;
+  }
+
+  handler_render_error(com, e){
+    this.core.logger.error(e);
+    if(e.message.match("template not found")){
+      this.close(com, 404);
+    }else{
+      this.close(com, 500, (arg, info) => { this.show_error(arg, info, e); });
+    }
   }
 
 }
