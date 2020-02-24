@@ -16,10 +16,13 @@ const uuid = require('uuid');
 module.exports = class {
 
   constructor(core, config){
+     this.SERVER_NAME = ""; // assigned by colloquist.server
     this.core = core;
     this.config = config;
     this.engine = new this.core.server.framework;
     this.response_code_list = require('../codes.json');
+
+    this.config.path = this.config.path || {};
   }
 
   /* @required
@@ -146,7 +149,6 @@ module.exports = class {
           if(!st.isDirectory(p))
             throw new Error("asset path is not a directory.");
           this.engine.use('/' + nm, this.core.server.framework.static(p));
-          this.config.path = this.config.path || {};
           this.config.path.expose = this.config.path.expose || {};
           this.config.path.expose[nm] = p;
           this.core.logger.debug("asset path: " + nm + " => " + p);
@@ -239,12 +241,13 @@ module.exports = class {
     // type
     if(ct.match('text/*')){
       try{
-        let html = await this.render([, 'error', info.code], {
+        let html = await this.render(['error', info.code], {
           content: content,
           message: msg
         });
         res.send(html);
       }catch(e){
+        console.error(e);
         res.end(msg);
       }
     }else if(ct.match('application/json')){
@@ -333,7 +336,7 @@ module.exports = class {
    */
   async render(pathcomp, data){
     let d = FM.ob.merge({}, {yield:"", data:{}}, data);
-    let f = ['server', 'default', 'template'].concat(pathcomp);
+    let f = ['server', this.SERVER_NAME, 'template'].concat(pathcomp);
     let r = await this.core.template.load(f, d);
     return r;
   }
