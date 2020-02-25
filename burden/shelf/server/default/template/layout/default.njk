@@ -41,16 +41,30 @@ const ACCESS_TOKEN = '{{ token }}';
   // Simple APP handler.
 
   var __queue_storage = [];
+  var __view_storage = [];
 
+  // inherits remote-side variables
+  try{
+    APP.variable = {
+      meta: {{ meta | dump | safe }},
+    };
+  }catch(e){
+    console.error(e);
+  }
+
+  // global queue handler.
   APP.queue = function(clb){
     __queue_storage.push(clb);
   }
 
-  APP.flush = function(){
+  APP.init = function(){
     for(var q of __queue_storage) q.call(APP);
+    for(var v of __view_storage) v.init.call(v);
   }
 
-  APP.GUI = function(o, opt){
+  /* Vue initiator
+   */
+  APP.V = function(o, opt){
     var page = null, vop;
     if(typeof o == "string"){
       vop = Object.assign({}, opt || {})
@@ -58,7 +72,9 @@ const ACCESS_TOKEN = '{{ token }}';
     }else{
       vop = Object.assign({}, o || {})
     }
-    return {
+
+    let m = {
+      context: null,
       register: (comp, opt) => {
         if(typeof comp == "string"){
           APP.component(comp, opt);
@@ -69,12 +85,15 @@ const ACCESS_TOKEN = '{{ token }}';
         }
       },
       init: () => {
-        if(page == null){
-          page = new Vue(vop);
+        if(m.context == null){
+          m.context = new Vue(vop);
         }
-        return page;
+        return m.context;
       }
     };
+
+    __view_storage.push(m);
+    return m;
   }
 
   APP.component = function(name, opt){
@@ -205,8 +224,8 @@ const ACCESS_TOKEN = '{{ token }}';
 // Flushing queues.
 ( document.readyState === "complete" ||
   (document.readyState !== "loading" && !document.documentElement.doScroll)
-) ? APP.flush()
-  : document.addEventListener("DOMContentLoaded", APP.flush) ;
+) ? APP.init()
+  : document.addEventListener("DOMContentLoaded", APP.init) ;
 </script>
 </body>
 </html>
