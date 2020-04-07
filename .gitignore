@@ -10,4 +10,4 @@ node_modules/
 .env
 log/*
 burden/config/*.js
-!burden/config/local.js
+!burden/config/local.default.js
