@@ -122,7 +122,7 @@ module.exports = class {
         }
       }
       if(mt.length > 0){
-        console.log("  -> Blocked: ", mt.join(", "));
+        //console.log("  -> Blocked: ", mt.join(", "));
         this.close(arguments, 403);
       }
       next();
@@ -151,13 +151,24 @@ module.exports = class {
           this.engine.use('/' + nm, this.core.server.framework.static(p));
           this.config.path.expose = this.config.path.expose || {};
           this.config.path.expose[nm] = p;
-          this.core.logger.debug("asset path: " + nm + " => " + p);
+          this.core.logger.debug("exposing path: " + nm + " => " + p);
         }
       }catch(e){
         this.core.logger.error(new Error("Invalid asset-dir config: " + e.message));
       }
     }else{
       this.core.logger.debug("sever.asset is disabled.");
+    }
+  }
+
+  async register(type, middleware_list, match_list, handler){
+    for (let m of match_list) {
+      for (let mid of middleware_list) {
+        this.engine.use(m, mid);
+      }
+      if(handler){
+        this.engine[type](m, handler);
+      }
     }
   }
 
@@ -170,16 +181,6 @@ module.exports = class {
     });
   }
 
-  async register(type, match_list, middleware_list){
-    for(let m of match){
-    }
-    for(let mid of middleware_list){
-      this.engine.use(match);
-    }
-    this.engine[type](match, (req, res, next) => {
-    });
-  }
-
   /* Binds basic route-groups.
    */
   async bind_route(){
@@ -189,7 +190,7 @@ module.exports = class {
       next();
     });
 
-    this.register('get', '/some/', [])
+    this.register('get', [], ['/some/'])
 
     this.engine.get('/run/*', (req, res, next) => {
       res.type('json');
@@ -229,7 +230,7 @@ module.exports = class {
     });
 
     this.engine.post('/*', (...arg) => {
-      let arg = [req, res] = arg;
+      [req, res] = arg;
       res.type('html');
       this.catch_all_req(req, res);
     });
@@ -260,7 +261,6 @@ module.exports = class {
         });
         res.send(html);
       }catch(e){
-        console.error(e);
         res.end(msg);
       }
     }else if(ct.match('application/json')){
@@ -381,8 +381,8 @@ module.exports = class {
     return y;
   }
 
-  async catch_all_req(req, res){
-    console.log("catch_all");
+  async catch_all_req(...arg){
+    let [req, res] = arg;
     this.render_direct_view(req, {})
       .then((r) => { res.send(r); })
       .catch((e) => {
