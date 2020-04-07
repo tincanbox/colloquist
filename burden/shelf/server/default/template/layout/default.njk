@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <base href="/">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/x-icon" href="/asset/favicon.ico">
 
 <title>{{ meta.title or "NENIU TITOLO" }}</title>
 <meta name="keywords" content="{{ meta.keywords or "" }}">
@@ -23,6 +23,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <!-- FMJS -->
 <script src="/asset/vendor/fmjs/fm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
 <!-- VUE -->
 <script src="/asset/vendor/vue/vue.js"></script>
 <!-- Swal -->
@@ -42,6 +43,18 @@ const ACCESS_TOKEN = '{{ token }}';
 
   var __queue_storage = [];
   var __view_storage = [];
+
+  // Shared lib redirection.
+  APP.shared = {
+    'lo': _,
+    'FM': FM
+  };
+  APP.shared.install = function(){
+    Object.defineProperty(Vue.prototype, '_', {
+      get () { return APP.shared; }
+    })
+  }
+  Vue.use(APP.shared);
 
   // inherits remote-side variables
   try{

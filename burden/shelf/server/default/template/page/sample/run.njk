@@ -45,18 +45,16 @@
 
 </section>
 
-{% raw %}
 <template id="template--control-run-action-list">
   <div class="input-group">
     <div class="input-group-prepend">
       <span class="input-group-text">Story</span>
     </div>
     <select class="custom-select" id="data-command">
-      <option v-for="n of list" v-bind:value="n">{{ n }}</option>
+      <option v-for="n of list" v-bind:value="n" v-html="'<span>' + n + '</span>'"></option>
     </select>
   </div>
 </template>
-{% endraw %}
 
 <template id="template--control-run-action-parameter">
   <div class="input-group">
@@ -66,11 +64,10 @@
     <input
       class="form-control"
       id="data-parameter"
-      value="{{ query.parameter or "" | escape }}">
+      value="">
   </div>
 </template>
 
-{% raw %}
 <template id="template--control-run-action-file">
   <div class="input-group">
     <div class="input-group-prepend">
@@ -221,5 +218,4 @@
 
   });
 </script>
-{% endraw %}
 {% endblock %}

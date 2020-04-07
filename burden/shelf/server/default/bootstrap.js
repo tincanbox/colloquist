@@ -170,18 +170,31 @@ module.exports = class {
     });
   }
 
+  async register(type, match_list, middleware_list){
+    for(let m of match){
+    }
+    for(let mid of middleware_list){
+      this.engine.use(match);
+    }
+    this.engine[type](match, (req, res, next) => {
+    });
+  }
+
   /* Binds basic route-groups.
    */
   async bind_route(){
+
     this.engine.use('/api/*', (req, res, next) => {
       res.type('json');
       next();
     });
 
+    this.register('get', '/some/', [])
+
     this.engine.get('/run/*', (req, res, next) => {
       res.type('json');
       let url = req.url.replace(/^\/run\//, "");
-      this.redirect_request(url, req, res, next)
+      this.recite_request(url, req, res, next)
         .then(r => res.json(r))
         .catch(r => res.json(r));
     });
@@ -189,36 +202,36 @@ module.exports = class {
     this.engine.post('/run/*', (req, res, next) => {
       res.type('json');
       let url = req.url.replace(/^\/run\//, "");
-      this.redirect_request(url, req, res, next)
+      this.recite_request(url, req, res, next)
         .then(r => res.json(r))
         .catch(r => res.json(r));
     });
 
     this.engine.get('/bucket', (req, res) => {
+      // if(true){
+      //  Your auth here.
+      // }
       if(req.query.file){
         return res.download(this.config.path.expose.bucket + path.sep + req.query.file);
       }
       this.close(arguments, 404);
     });
 
+    /* ========================================
+     * Put your routings here.
+     * ========================================
+     */
+
     this.engine.get('/*', (...arg) => {
       let [req, res] = arg;
       res.type('html');
-      this.render_direct_view(req, {})
-        .then((r) => { res.send(r); })
-        .catch((e) => {
-          this.handler_render_error(arg, e);
-        });
+      this.catch_all_req(req, res);
     });
 
-    this.engine.post('/*', () => {
-      let arg = [req, res] = arguments;
+    this.engine.post('/*', (...arg) => {
+      let arg = [req, res] = arg;
       res.type('html');
-      this.render_direct_view(req, {})
-        .then((r) => { res.send(r); })
-        .catch((e) => {
-          this.handler_render_error(arg, e);
-        });
+      this.catch_all_req(req, res);
     });
   }
 
@@ -301,7 +314,7 @@ module.exports = class {
    * ( req:IncomingMessage
    * ) -> void
    */
-  async redirect_request(url, ...arg){
+  async recite_request(url, ...arg){
     let [req, res] = arg;
     try{
       if(!url){
@@ -366,6 +379,15 @@ module.exports = class {
     }, pm);
     let y = await this.render(t.split("/").filter(r => r), m);
     return y;
+  }
+
+  async catch_all_req(req, res){
+    console.log("catch_all");
+    this.render_direct_view(req, {})
+      .then((r) => { res.send(r); })
+      .catch((e) => {
+        this.handler_render_error(arg, e);
+      });
   }
 
   handler_render_error(com, e){
