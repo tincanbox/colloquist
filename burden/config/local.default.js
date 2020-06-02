@@ -13,11 +13,10 @@ module.exports = {
   label: process.env.APPNAME || "YOURAPPNAME",
   stage: process.env.ENVIRONMENT || "devel",
 
-  /* as of v2.0, colloquist does NOT include
-   * chromium binary as default.
+  /* as of v2.0, colloquist does NOT include chromium binary as default.
    * If you want to use colloquist as browser-automator,
    * please install chromium individually.
    */
-  puppet: { executable: "/snap/bin/chromium" }
+  // puppet: { executable: "/snap/bin/chromium" }
 
 }
