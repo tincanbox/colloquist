@@ -17,6 +17,9 @@ module.exports = {
   "headless": true,
   /* Chromium has default-viewport 800x600 GUI.
    * colloquist disables defaults and maxes out view.
+   *
+   * takes: string || ifable
+   * default: null
    */
   "viewport": null,
   "display": {
@@ -38,7 +41,7 @@ module.exports = {
    * default: []
    */
   "arg": [
-    // --no-sandbox
+    // '--no-sandbox',
   ],
   /* If you want to override default UA, use this option.
    * Safari, Firefox, IE ?
@@ -51,8 +54,8 @@ module.exports = {
    * Scenario class handles concurrent-working story queue counts.
    * Increasing this means.. Raised number of concurrent Puppeteer Page or BrowserContext.
    * The isolated Scene always opens new BrowserContext,
-   * while default Scene uses same BrowserContext and opens Page instance.
-   * See Scene.open() for detail behaivior.
+   * while default Scene uses same BrowserContext and opens a Page instance.
+   * See Scene.commence() for detailed behaivior.
    */
   "max_concurrent_work": 2,
   /* Blocks specific contents via Page's `request` event.

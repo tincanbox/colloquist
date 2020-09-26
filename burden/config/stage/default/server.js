@@ -1,57 +1,52 @@
 module.exports = {
+  /* Uses express as main server.
+   * http://expressjs.com/en/5x/api.html#router
+   *
+   * You can separate the server configurations define like `default`.
+   */
   default: {
+    /*
+     */
     port: 9000,
-    prepare: async function(server){
 
-      var block_list = [
-        "/favicon.ico"
-      ];
+    auth: {
+      basic: [
+        // ['USER', 'PASSWORD']
+      ]
+    },
 
-      var data = FM.ob.define({
-        post: {},
-        result: []
-      });
+    /* string with an adjective `/` will be treated as the absolute-path.
+     * /abs/to/your/dir
+     *
+     * string starting with non-`/` char will be treated as the relative-path from `burden`.
+     * your/pub/in/burden
+     */
+    expose: [
+      ["asset", "shelf/server/default/public/asset"],
+      ["bucket", "shelf/server/default/public/bucket"],
+    ],
 
+    block: {
+      type: [],
+      url: [
+      ]
+    },
 
-      async function load_view(req, param){
-        var t = req.url.split("?").shift().replace(/^\//, "");
-        t = "view/" + t + ".ejs";
-        try{
-          var view = await server.core.template.load(
-            t.split("/"), data(FM.ob.merge({}, req.query || {}, param))
-          );
-          return view;
-        }catch(e){
-          console.log(e);
-        }
-      }
+    session: {
+      secret: 'YOURSECRET',
+      resave: false,
+      saveUninitialized: true,
+      cookie: { secure: true }
+    },
 
-      server.router.all('*', function(req, res, next){
-        // Blocks stupid request.
-        if(block_list.indexOf(req.url) > -1){
-          console.log("Blocked: ", req.url);
-          return res.status(404).end();
-        }
-        next();
-      });
-
-      /* Really simple routing.
-       */
-      server.engine.get('*', async function(req, res){
-        var v = await load_view(req);
-        res.send(v);
-      });
-
-      server.engine.post('*', async function(req, res){
-        var t = req.url.replace(/^\//, "");
-        var c = await server.core.run(t);
-        var v = await load_view(req, {
-          post: req.body,
-          result: c.scenario.passed
-        });
-        res.send(v);
-      });
-
+    /* Adaptor for the shelf/server/default instance.
+     */
+    prepare: async (core, handler, config) => {
+      /* Do Your Things. */
+      let con = new handler(core, config);
+      await con.init();
+      return con;
     }
   }
+
 };

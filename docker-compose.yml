@@ -1,0 +1,6 @@
+# Base compose file.
+burden:
+  build: "./"
+  container_name: "colloquist.burden"
+  ports:
+   - "9000:9000"
