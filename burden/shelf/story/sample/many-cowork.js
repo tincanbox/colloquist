@@ -25,7 +25,7 @@ module.exports = class extends Story {
     await this.scene.commence();
     await FM.async.sleep(1000);
 
-    let kuroko = await this.core.backroom.pop();
+    let kuroko = await this.core.backroom.summon();
 
     await kuroko.run((port, data) => {
       data.some = data.some + 1;
