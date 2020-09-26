@@ -16,7 +16,7 @@ const uuid = require('uuid');
 module.exports = class {
 
   constructor(core, config){
-     this.SERVER_NAME = ""; // assigned by colloquist.server
+    this.SERVER_NAME = ""; // assigned by colloquist.server
     this.core = core;
     this.config = config;
     this.engine = new this.core.server.framework;
@@ -72,7 +72,7 @@ module.exports = class {
       req.query = req.query || {};
       //
       if(this.config.url_auth){
-        var sig = this.config.url_auth.split(":");
+        let sig = this.config.url_auth.split(":");
         if(sig.length < 2){
           sig = ["SIGNATURE", sig[0]];
         }
@@ -90,10 +90,10 @@ module.exports = class {
         const b64auth = (req.headers.authorization || '').split(' ')[1] || '';
         const [usr, psw] = new Buffer(b64auth, 'base64').toString().split(':');
         // Verify login and password are set and correct
-        var cred = this.config.auth.basic;
+        let cred = this.config.auth.basic;
         if(typeof cred === 'string')
           cred = [cred];
-        for(var au of cred){
+        for(let au of cred){
           if(typeof au === 'string')
             au = au.split(":");
           if (usr && psw && (usr === au[0]) && (psw === au[1]))
@@ -130,12 +130,12 @@ module.exports = class {
     // Other Globals
     this.engine.use((req, res, next) => {
       this.retrieve(req)
-        .then(() => {
-          next();
-        })
-        .catch((e) => {
-          this.core.logger.error(e);
-        })
+          .then(() => {
+            next();
+          })
+          .catch((e) => {
+            this.core.logger.error(e);
+          })
     })
     // Assets
     if(this.config.expose && this.config.expose.length){
@@ -146,9 +146,23 @@ module.exports = class {
           let nm = f[0], pt = f[1];
           let p = path.resolve(pt.match(/^\//) ? pt : bs + pt);
           let st = await fs.stat(p);
-          if(!st.isDirectory(p))
-            throw new Error("asset path is not a directory.");
-          this.engine.use('/' + nm, this.core.server.framework.static(p));
+
+          // Following symlinks.
+          if(st.isSymbolicLink()){
+              p = await fs.realpath(p);
+              st = await fs.stat(p);
+          }
+
+          if(!st.isDirectory(p)){
+            throw new Error("Asset path is not a directory. => " + p);
+          }
+
+          // Binding to route.
+          this.engine.use('/' + nm, this.core.server.framework.static(p, {
+            fallthrough: false
+          }));
+
+          // Setting up config.
           this.config.path.expose = this.config.path.expose || {};
           this.config.path.expose[nm] = p;
           this.core.logger.debug("exposing path: " + nm + " => " + p);
@@ -185,29 +199,31 @@ module.exports = class {
    */
   async bind_route(){
 
+    // Global middlewares
+    this.register('get', [], []);
+    this.register('post', [], []);
+    this.register('put', [], []);
+    this.register('update', [], []);
+    this.register('delete', [], []);
+
+    // APIs
     this.engine.use('/api/*', (req, res, next) => {
       res.type('json');
       next();
     });
 
-    this.register('get', [], ['/some/'])
-
-    this.engine.get('/run/*', (req, res, next) => {
+    // Story redirect for CRUD.
+    const reciting = (req, res, next) => {
       res.type('json');
       let url = req.url.replace(/^\/run\//, "");
       this.recite_request(url, req, res, next)
-        .then(r => res.json(r))
-        .catch(r => res.json(r));
-    });
+          .then(r => res.json(r))
+          .catch(r => res.json(r));
+    };
+    this.engine.get('/run/*', reciting);
+    this.engine.post('/run/*', reciting);
 
-    this.engine.post('/run/*', (req, res, next) => {
-      res.type('json');
-      let url = req.url.replace(/^\/run\//, "");
-      this.recite_request(url, req, res, next)
-        .then(r => res.json(r))
-        .catch(r => res.json(r));
-    });
-
+    // Downloadables.
     this.engine.get('/bucket', (req, res) => {
       // if(true){
       //  Your auth here.
@@ -281,23 +297,23 @@ module.exports = class {
       let fds = [];
       // Events
       form
-        .on('field', (k, v) => {
-          fds.push([k, v]);
-        })
-        .on('error', (err) => {
-          reject(err);
-        })
-        .on('file', (field, file) => {
-          req.file = req.file || {};
-          req.file[field] = file;
-        })
-        .on('aborted', (err) => {
-          self.core.logger.debug("Request Aborted");
-        })
-        .on('end', () => {
-          let o = FM.ob.unserialize(fds);
-          req.body = Object.assign(req.body || {}, o);
-        });
+          .on('field', (k, v) => {
+            fds.push([k, v]);
+          })
+          .on('error', (err) => {
+            reject(err);
+          })
+          .on('file', (field, file) => {
+            req.file = req.file || {};
+            req.file[field] = file;
+          })
+          .on('aborted', (err) => {
+            self.core.logger.debug("Request Aborted");
+          })
+          .on('end', () => {
+            let o = FM.ob.unserialize(fds);
+            req.body = Object.assign(req.body || {}, o);
+          });
       // lets go
       form.parse(req, (err /*, fields, files */) => {
         if(err){
@@ -328,12 +344,12 @@ module.exports = class {
         Object.defineProperty(p, 'response', Object.assign({value: res}, c));
         // Lets go.
         let r = await this.core.tell(url, p)
-          .then((r) => {
-            return { data: r };
-          })
-          .catch((e) => {
-            return { error: e.message };
-          });
+            .then((r) => {
+              return { data: r };
+            })
+            .catch((e) => {
+              return { error: e.message };
+            });
 
         return r;
       }
@@ -384,10 +400,10 @@ module.exports = class {
   async catch_all_req(...arg){
     let [req, res] = arg;
     this.render_direct_view(req, {})
-      .then((r) => { res.send(r); })
-      .catch((e) => {
-        this.handler_render_error(arg, e);
-      });
+        .then((r) => { res.send(r); })
+        .catch((e) => {
+          this.handler_render_error(arg, e);
+        });
   }
 
   handler_render_error(com, e){
