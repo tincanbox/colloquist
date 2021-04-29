@@ -3,12 +3,12 @@
   description: "YOUR DESCRIPTION"
 }) }}
 
-{% extends "../layout/default.njk" %}
+{% extends "../layout/default" %}
 
 {# Contents #}
 {% block yield %}
   <pre>
-  <div>Hello World.</div>
-  <p>TOKEN: {{ token }}</p>
+  <div>Hello, dear colloquist.</div>
+  <p>Token: {{ token }}</p>
   </pre>
 {% endblock %}
