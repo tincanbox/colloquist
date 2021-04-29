@@ -1,14 +1,14 @@
-{{ _.assign(meta, {
+<$ _.assign(meta, {
   title: "",
   description: "YOUR DESCRIPTION"
-}) }}
+}) $>
 
-{% extends "../layout/default" %}
+<% extends "../layout/default" %>
 
-{# Contents #}
-{% block yield %}
+<# Contents #>
+<% block yield %>
   <pre>
   <div>Hello, dear colloquist.</div>
-  <p>Token: {{ token }}</p>
+  <p>Token: <$ token $></p>
   </pre>
-{% endblock %}
+<% endblock %>

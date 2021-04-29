@@ -4,11 +4,10 @@
 <meta charset="utf-8">
 <base href="/">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" type="image/x-icon" href="/asset/favicon.ico">
 
-<title>{{ meta.title or "NENIU TITOLO" }}</title>
-<meta name="keywords" content="{{ meta.keywords or "" }}">
-<meta name="description" content="{{ meta.description or "" }}">
+<title><$ meta.title or "NENIU TITOLO" $></title>
+<meta name="keywords" content="<$ meta.keywords or "" $>">
+<meta name="description" content="<$ meta.description or "" $>">
 
 <!-- jQuery -->
 <script
@@ -36,7 +35,7 @@
 </style>
 <script>
 const APP = {};
-const ACCESS_TOKEN = '{{ token }}';
+const ACCESS_TOKEN = '<$ token $>';
 (() => {
 
   // Simple APP handler.
@@ -59,7 +58,7 @@ const ACCESS_TOKEN = '{{ token }}';
   // inherits remote-side variables
   try{
     APP.variable = {
-      meta: {{ meta | dump | safe }},
+      meta: <$ meta | dump | safe $>,
     };
   }catch(e){
     console.error(e);
@@ -231,7 +230,8 @@ const ACCESS_TOKEN = '{{ token }}';
   <a class="navbar-brand" href="/">NENIU TITOLO</a>
 </nav>
 <div id="container" class="container">
-  {% block yield %}{% endblock %}
+  <% block yield %>
+  <% endblock %>
 </div>
 <script>
 // Flushing queues.
