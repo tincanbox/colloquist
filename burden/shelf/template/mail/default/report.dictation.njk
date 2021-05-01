@@ -1,30 +1,30 @@
 <pre style="font-family: Consolas, 'Courier New', monospace;">
 =============================
-Success: {{ count.success }}
-Failure: {{ count.failure }}
-{% for row in stack %}
+Success: <$ count.success $>
+Failure: <$ count.failure $>
+<% for row in stack %>
 _____________________________
-Name:       {{ row.uri }}
-Status:     {{ row.status }}
-Start:      {{ row.started_at }}
-Finished:   {{ row.finished_at }}
+Name:       <$ row.uri $>
+Status:     <$ row.status $>
+Start:      <$ row.started_at $>
+Finished:   <$ row.finished_at $>
 - - - - - - - - - - - - - - -
 Premise:
-{% for k in row.premise %}
-  {{ k }} = {{ row.premise[k] }}
-{% endfor %}
+<% for k in row.premise %>
+  <$ k $> = <$ row.premise[k] $>
+<% endfor %>
 - - - - - - - - - - - - - - -
 Errors:
-{% for e in row.error %}
-{{ e| dump }}
-{% endfor %}
+<% for e in row.error %>
+<$ e| dump $>
+<% endfor %>
 
 Log:
-{% for k in row.memory %}
-  {{ k }} =
-  {{ row.memory[k]| dump }}
-{% endfor %}
+<% for k in row.memory %>
+  <$ k $> =
+  <$ row.memory[k]| dump $>
+<% endfor %>
 
-{% endfor %}
+<% endfor %>
 =========== EOF ============
 </pre>
