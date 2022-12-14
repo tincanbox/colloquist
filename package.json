@@ -16,7 +16,7 @@
     "dotenv": "^8.2.0",
     "encoding-japanese": "^1.0.30",
     "esm": "^3.2.25",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-generator": "^4.16.1",
     "express-session": "^1.17.0",
     "formidable": "^1.2.1",
